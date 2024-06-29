@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.carpool.mapper.LicenseMapper">
+    <insert id="addLicense" keyProperty="id">
+        INSERT INTO `license`(`driverid`)
+        VALUES (#{driverid});
+    </insert>
+    <update id="updateDriverLicense">
+        UPDATE parent
+        SET licenseid=#{id}
+        WHERE id = #{driverid};
+    </update>
+    <select id="getLicenseByDriverID" resultType="com.xidian.carpool.entity.License">
+        select *
+        from license
+        where driverid = #{driverID}
+
+    </select>
+</mapper>

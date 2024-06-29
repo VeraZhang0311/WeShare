@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.carpool.mapper.WSMapper">
+    <insert id="addMessage">
+        INSERT INTO `unreceivedMessages`(`fromUID`, `toUID`, `data`, `cooperateID`)
+        VALUES (#{fromUID}, #{toUID}, #{data}, #{cooperateID});
+    </insert>
+    <delete id="delOfflineMsh">
+        DELETE
+        FROM `unreceivedMessages`
+        WHERE `toUID` = #{id};
+    </delete>
+    <select id="getOfflineMsg" resultType="com.xidian.carpool.entity.Message">
+        SELECT *
+        FROM `unreceivedMessages`
+        WHERE `toUID` = #{id};
+    </select>
+
+</mapper>

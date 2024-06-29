@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.xidian.carpool.entity.CarTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! - in com.xidian.carpool.entity.CarTest
+fillByCarNumber  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.xidian.carpool.entity.CarTest.fillByCarNumber(CarTest.java:20)
+

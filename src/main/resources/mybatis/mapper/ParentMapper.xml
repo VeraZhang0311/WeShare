@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.carpool.mapper.ParentMapper">
+
+    <select id="queryParent" resultType="com.xidian.carpool.entity.Parent">
+        select *
+        from parent;
+    </select>
+
+    <insert id="addParent" parameterType="com.xidian.carpool.entity.Parent">
+        INSERT INTO `parent`(`openid`, `name`, `sex`, `phone`, `idnumber`, `licenseid`, `avatarUrl`)
+        VALUES (#{openid}, #{name}, #{sex}, #{phone}, #{idnumber}, #{licenseid}, #{avatarUrl});
+    </insert>
+
+    <select id="atDBopenid" resultType="int">
+        select COUNT(*)
+        from parent
+        WHERE openid = #{openid};
+    </select>
+    <select id="atDBid" resultType="int">
+        select COUNT(*)
+        from parent
+        WHERE id = #{id};
+    </select>
+    <select id="fillByOpenid" resultType="com.xidian.carpool.entity.Parent">
+        select *
+        from parent
+        WHERE openid = #{openid};
+    </select>
+
+    <select id="fillById" resultType="com.xidian.carpool.entity.Parent">
+        select *
+        from parent
+        WHERE id = #{id};
+    </select>
+
+    <select id="undoneCooperation" resultType="com.xidian.carpool.entity.Cooperate">
+        SELECT id, DATE_FORMAT(datetime, '%Y-%m-%d %H:%i:%s') AS date, driverid, state, maxstu
+        FROM cooperate
+        WHERE driverid = #{id}
+          AND state != 4;
+    </select>
+
+    <select id="getCars" resultType="com.xidian.carpool.entity.Car">
+        SELECT *
+        FROM car
+        WHERE id = any
+              (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = #{openid}));
+    </select>
+
+    <select id="haveSomeCarNumber" resultType="int">
+        SELECT COUNT(*) AS haveCar
+        FROM `driverCar`
+        WHERE `driverCar`.`driverid` = #{driverid}
+          AND `driverCar`.`carid` = (SELECT id FROM car WHERE `car`.`carnumber` = #{carNumber});
+    </select>
+    <select id="haveSomeCarID" resultType="int">
+        SELECT COUNT(*) AS haveCar
+        FROM `driverCar`
+        WHERE `driverCar`.`driverid` = #{driverid}
+          AND `driverCar`.`carid` = #{carID};
+    </select>
+    <select id="getChildren" resultType="com.xidian.carpool.entity.Child">
+        SELECT *
+        FROM child
+        WHERE id = any
+              (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = #{openid}));
+    </select>
+    <insert id="bondCar">
+        INSERT INTO `driverCar`(`driverid`, `carid`)
+        VALUES (#{driverid}, #{carid});
+    </insert>
+
+    <insert id="bondid">
+        INSERT INTO `parentChild`(`parentid`, `childid`)
+        VALUES ((SELECT id FROM `parent` WHERE openid = #{parentOpenid}), #{childid});
+    </insert>
+
+    <insert id="bondOpenid">
+        INSERT INTO `parentChild`(`parentid`, `childid`)
+        VALUES ((SELECT id FROM `parent` WHERE openid = #{parentOpenid}),
+                (SELECT id FROM `child` WHERE openid = #{childOpenid}));
+    </insert>
+
+    <select id="userType" resultType="int">
+        SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=#{openid})-(SELECT COUNT(*) FROM child WHERE
+        `child`.`openid`=#{openid}) AS userType;
+        <!--
+        -1：孩子
+        0：未注册
+        1：家长
+        -->
+    </select>
+    <select id="getApplyCooperates" resultType="com.xidian.carpool.entity.CooperateParentChild">
+        SELECT *
+        FROM applyJoin
+        WHERE driverid = #{id}
+        ORDER BY id desc;
+    </select>
+    <select id="getParentList" resultType="com.xidian.carpool.entity.Parent">
+        SELECT * FROM carpool.parent WHERE id in
+        <foreach collection="idList" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    <select id="haveSomeChildrenName" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM child
+        WHERE id = any
+              (SELECT childid
+               FROM `parentChild`
+               WHERE parentid = (SELECT id FROM `parent` WHERE openid = #{parent.openid}))
+          AND name = #{childName};
+    </select>
+    <select id="haveSomeChildrenOpenid" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM child
+        WHERE id = any
+              (SELECT childid
+               FROM `parentChild`
+               WHERE parentid = (SELECT id FROM `parent` WHERE openid = #{parent.openid}))
+          AND openid = #{childOpenid};
+    </select>
+    <select id="verifying" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM carpool.verify
+        WHERE openid = #{openid}
+          AND accept = 0
+          AND type = 0
+    </select>
+
+    <update id="updateAvatarUrl">
+        UPDATE `parent`
+        SET `avatarUrl` = #{avatarUrl}
+        WHERE `openid` = #{openid}
+    </update>
+</mapper>

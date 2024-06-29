@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.xidian.carpool.entity.CooperateTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in com.xidian.carpool.entity.CooperateTest
+getCooperatesByCPCChildID  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.xidian.carpool.entity.CooperateTest.getCooperatesByCPCChildID(CooperateTest.java:26)
+
+fillByID  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.xidian.carpool.entity.CooperateTest.fillByID(CooperateTest.java:14)
+
+getNearCooperate  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.xidian.carpool.entity.CooperateTest.getNearCooperate(CooperateTest.java:19)
+

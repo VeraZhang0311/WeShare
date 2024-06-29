@@ -1,0 +1,547 @@
+2021-04-10 09:45:20  [ main:0 ] - [ DEBUG ]  Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2021-04-10 09:45:20  [ main:7 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.CooperateParentChild matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:8 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Car matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:9 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Child matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:10 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Parent matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:11 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.License matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:12 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.CooperateView matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:13 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Cooperate matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:13 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.base.HttpUtil matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:14 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.base.BaseResponse matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:15 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.base.User matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:56 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-10 09:45:20  [ main:57 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-10 09:45:20  [ main:57 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-10 09:45:20  [ main:58 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-10 09:45:20  [ main:63 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.InitMapper matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:64 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.UserMapper matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:65 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.ChildMapper matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:65 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.ParentMapper matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:66 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.LicenseMapper matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:66 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.CooperateMapper matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:66 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.CooperateParentChildMapper matches criteria [is assignable to Object]
+2021-04-10 09:45:20  [ main:67 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.CarMapper matches criteria [is assignable to Object]
+2021-04-10 09:45:21  [ main:348 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-10 09:45:21  [ main:1149 ] - [ DEBUG ]  Created connection 725832346.
+2021-04-10 09:45:21  [ main:1152 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS car ( `id` int unsigned NOT NULL AUTO_INCREMENT, `color` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色', `carnumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号', PRIMARY KEY (`id`) ) COMMENT ='车辆表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-10 09:45:21  [ main:1184 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:45:22  [ main:1270 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-10 09:45:22  [ main:1271 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS child ( `id` int unsigned NOT NULL AUTO_INCREMENT, `openid` varchar(40) NOT NULL COMMENT '学生openid', `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生姓名', `sex` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '学生性别', `stuclass` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生班级', `schooladdr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校地址', `homeaddr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生家庭住址', `phone` varchar(11) NOT NULL COMMENT '学生手机号', PRIMARY KEY (`id`) ) COMMENT ='孩子表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-10 09:45:22  [ main:1272 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:45:22  [ main:1330 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-10 09:45:22  [ main:1331 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS cooperate ( `id` int unsigned NOT NULL AUTO_INCREMENT, `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合作订单创建时间', `driverid` int unsigned NOT NULL COMMENT '司机ID', `state` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '司机接送状态', `maxstu` tinyint unsigned NOT NULL COMMENT '最多接学生数', `locate` varchar(255) NOT NULL DEFAULT '' COMMENT '司机位置', `locateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '司机定位时间', `carid` int unsigned NOT NULL DEFAULT '0' COMMENT '车辆ID', `departureTime` datetime DEFAULT NULL COMMENT '出发时间', `arriveTime` datetime DEFAULT NULL COMMENT '到学校时间', `leftTime` datetime DEFAULT NULL COMMENT '离开学校时间', `overTime` datetime DEFAULT NULL COMMENT '订单完成时间', PRIMARY KEY (`id`) ) COMMENT ='合作母表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-10 09:45:22  [ main:1332 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:45:22  [ main:1423 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-10 09:45:22  [ main:1424 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS cooperateParentChild ( `id` int unsigned NOT NULL AUTO_INCREMENT, `cooperateid` int unsigned NOT NULL COMMENT '合作订单ID', `parentid` int unsigned NOT NULL COMMENT '家长ID', `childid` int unsigned NOT NULL COMMENT '学生ID', `childAddr` varchar(40) NOT NULL COMMENT '被接学生的地址', `state` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '接车状态', `dismistime` datetime NOT NULL COMMENT '放学时间', `cooperatetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始合作时间', `destinationAddr` varchar(40) NOT NULL COMMENT '目的地址', `oncartime` datetime DEFAULT NULL COMMENT '上车时间', `overtime` datetime DEFAULT NULL COMMENT '到达或放弃合作时间', PRIMARY KEY (`id`) ) COMMENT ='合作子表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-10 09:45:22  [ main:1424 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:45:22  [ main:1512 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-10 09:45:22  [ main:1513 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS license ( `id` int unsigned NOT NULL AUTO_INCREMENT, `driverid` int unsigned NOT NULL COMMENT '驾照持有者ID', PRIMARY KEY (`id`) ) COMMENT ='驾驶证表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-10 09:45:22  [ main:1513 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:45:22  [ main:1571 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-10 09:45:22  [ main:1571 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS parent ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `openid` varchar(40) NOT NULL COMMENT '家长openid', `name` varchar(32) NOT NULL COMMENT '家长姓名', `sex` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '家长性别', `phone` varchar(11) NOT NULL COMMENT '家长手机号', `idnumber` varchar(18) NOT NULL COMMENT '家长身份证号', `licenseid` int unsigned NOT NULL DEFAULT '0' COMMENT '家长驾照ID', PRIMARY KEY (`id`) ) COMMENT ='家长表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-10 09:45:22  [ main:1572 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:45:22  [ main:1640 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-10 09:45:22  [ main:1641 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS parentChild ( `id` int unsigned NOT NULL AUTO_INCREMENT, `parentid` int unsigned NOT NULL COMMENT '家长ID', `childid` int unsigned NOT NULL COMMENT '学生ID', PRIMARY KEY (`id`) ) COMMENT ='家长孩子关系表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-10 09:45:22  [ main:1641 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:45:22  [ main:1703 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-10 09:45:22  [ main:1703 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS driverCar ( `id` int unsigned NOT NULL AUTO_INCREMENT, `driverid` int DEFAULT NULL COMMENT '司机ID', `carid` int DEFAULT NULL COMMENT '车辆ID', PRIMARY KEY (`id`) ) COMMENT ='司机车辆关系表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-10 09:45:22  [ main:1704 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:45:22  [ main:1761 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-10 09:45:22  [ main:1766 ] - [ DEBUG ]  ==>  Preparing: SELECT COUNT(*) FROM information_schema.TABLES t, information_schema.SCHEMATA n WHERE t.table_name = ? AND n.SCHEMA_NAME = ?; 
+2021-04-10 09:45:22  [ main:1767 ] - [ DEBUG ]  ==> Parameters: cooperateView(String), carpool(String)
+2021-04-10 09:45:22  [ main:1918 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:45:22  [ main:1920 ] - [ DEBUG ]  ==>  Preparing: SELECT COUNT(*) FROM information_schema.TRIGGERS t WHERE TRIGGER_NAME = ? AND TRIGGER_SCHEMA = ?; 
+2021-04-10 09:45:22  [ main:1920 ] - [ DEBUG ]  ==> Parameters: updateTime(String), carpool(String)
+2021-04-10 09:45:22  [ main:2027 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:45:23  [ main:2567 ] - [ DEBUG ]  Property 'configuration' or 'configLocation' not specified, using default MyBatis Configuration
+2021-04-10 09:45:23  [ main:2568 ] - [ DEBUG ]  Property 'mapperLocations' was not specified or no matching resources found
+2021-04-10 09:45:23  [ main:2959 ] - [ INFO ]  Server listening on https://127.0.0.1:8086
+2021-04-10 09:45:27  [ http-nio-8086-exec-1:7134 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9488 ] - [ DEBUG ]  Created connection 838325102.
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9489 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9490 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9518 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9524 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9789 ] - [ DEBUG ]  Created connection 31254035.
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9790 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9791 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9818 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9820 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9821 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9851 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:9853 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:10160 ] - [ DEBUG ]  Created connection 729417339.
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:10161 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:10162 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:45:30  [ http-nio-8086-exec-1:10195 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10300 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10301 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10331 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10332 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10332 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10360 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10361 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10361 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10394 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10395 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10665 ] - [ DEBUG ]  Created connection 1623744839.
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10666 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10666 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10694 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10696 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10775 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10775 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10802 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10803 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10804 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10830 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10831 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10831 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10859 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10860 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10860 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:45:31  [ http-nio-8086-exec-1:10893 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:361917 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:361920 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:361950 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:361951 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:361952 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:361979 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:361981 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:361982 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362009 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362010 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362011 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362042 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362043 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362044 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362070 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362071 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362072 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362099 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362100 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362101 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362132 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362132 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362133 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362161 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362162 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362164 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362165 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362191 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362192 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:51:22  [ http-nio-8086-exec-3:362193 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:23  [ http-nio-8086-exec-3:362220 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:23  [ http-nio-8086-exec-3:362221 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:51:23  [ http-nio-8086-exec-3:362222 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:51:23  [ http-nio-8086-exec-3:362250 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:23  [ http-nio-8086-exec-3:362251 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:51:23  [ http-nio-8086-exec-3:362251 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:51:23  [ http-nio-8086-exec-3:362282 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377860 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377861 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377890 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377890 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377891 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377916 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377917 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377917 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377944 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377945 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377945 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377977 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377978 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:377978 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378004 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378005 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378007 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378034 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378038 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378039 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378070 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378071 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378071 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378099 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378100 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378101 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378101 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378130 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378131 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378132 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378158 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378159 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378160 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378189 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378190 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:51:38  [ http-nio-8086-exec-4:378191 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:51:39  [ http-nio-8086-exec-4:378222 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431667 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431667 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431695 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431695 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431695 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431723 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431724 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431724 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431751 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431752 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431752 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431784 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431785 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431786 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431812 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431813 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431814 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431840 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431841 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431841 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431873 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431874 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431874 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431902 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431902 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431903 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431904 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431934 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431936 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431937 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431965 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431966 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431967 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431994 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431995 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:431996 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:52:32  [ http-nio-8086-exec-5:432027 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543552 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543552 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543580 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543580 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543581 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543606 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543606 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543607 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543633 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543634 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543634 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543666 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543666 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543666 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543693 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543694 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543694 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543720 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543721 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543721 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543752 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543753 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543753 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543781 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543789 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543790 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543791 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543817 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543818 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543819 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543845 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543846 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543847 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543877 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543878 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543879 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:24  [ http-nio-8086-exec-7:543911 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564410 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564410 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564438 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564438 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564439 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564464 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564465 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564466 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564492 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564493 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564493 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564524 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564524 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564525 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564552 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564552 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564553 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564579 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564580 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564580 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564612 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564612 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564613 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564640 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564641 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564642 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564642 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564669 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564670 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564670 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564696 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564697 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564697 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564725 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564726 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564726 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:45  [ http-nio-8086-exec-8:564758 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:573992 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:573992 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574019 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574019 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574020 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574046 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574046 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574047 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574073 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574073 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574074 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574105 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574105 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574106 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574132 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574132 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574133 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574160 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574161 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574161 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574194 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574195 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:54:54  [ http-nio-8086-exec-9:574195 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574229 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574229 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574231 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574270 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574296 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574297 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574297 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574326 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574327 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574328 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574356 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574356 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574357 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:54:55  [ http-nio-8086-exec-9:574388 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580114 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580115 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580143 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580143 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580144 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580169 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580170 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580170 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580197 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580197 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:55:00  [ http-nio-8086-exec-10:580198 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580229 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580230 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580230 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580257 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580258 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580258 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580285 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580285 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580286 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580317 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580318 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580318 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580346 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580347 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580348 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580348 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580375 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580376 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580377 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580405 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580405 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580406 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580433 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580434 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580435 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:55:01  [ http-nio-8086-exec-10:580466 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624094 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624095 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624123 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624124 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624124 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624150 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624151 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624151 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624177 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624178 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:55:44  [ http-nio-8086-exec-1:624178 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624209 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624210 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624211 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624237 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624238 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624238 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624265 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624266 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624266 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624297 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624298 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624299 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624327 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624327 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624328 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624333 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624359 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624360 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624360 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624386 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624387 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624388 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624416 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624417 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624418 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:55:45  [ http-nio-8086-exec-1:624449 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716312 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716314 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716343 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716343 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716344 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716370 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716370 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716371 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716397 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716397 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716398 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716429 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716430 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716430 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716457 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716458 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716458 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716485 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716486 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716486 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716517 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716518 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716519 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716547 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716548 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716550 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716551 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716577 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716578 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716579 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716609 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716610 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716610 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716639 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716639 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716640 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:17  [ http-nio-8086-exec-3:716671 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743720 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743721 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743749 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743749 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743750 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743776 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743776 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743777 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743803 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743804 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743804 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743835 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743836 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743837 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743863 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743864 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743864 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743890 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743891 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743892 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743923 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743923 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743924 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743951 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743952 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743953 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743954 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743980 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743981 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:743982 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:744008 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:744009 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:744009 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:744037 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:744038 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:744038 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:44  [ http-nio-8086-exec-4:744068 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753556 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753557 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753584 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753585 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753585 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753612 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753612 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753612 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753639 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753639 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753640 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753671 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753672 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753672 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753699 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753700 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753700 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753727 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753727 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753728 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753759 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753759 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753760 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753788 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753790 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753791 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753792 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753819 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753820 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753820 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753846 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753847 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753847 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753875 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753876 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753876 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:57:54  [ http-nio-8086-exec-5:753907 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:762958 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:762959 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:762986 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:762987 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:762987 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763014 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763014 ] - [ DEBUG ]  ==>  Preparing: select * from parent WHERE openid = ?; 
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763015 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763042 ] - [ DEBUG ]  <==      Total: 1
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763044 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763045 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763076 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763077 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763078 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763108 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763109 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763110 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763137 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763137 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763138 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763169 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763170 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763170 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763200 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:58:03  [ http-nio-8086-exec-6:763200 ] - [ INFO ]  /getUserInfo Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"data":{"userInfo":{"cars":[],"children":[],"cooperates":[],"id":7,"idnumber":"4","licenseid":0,"name":"1","openid":"obk6s5b0ZxLbscGXDCiRt1sRX1HM","phone":"3","sex":0},"nearCooperate":[],"userType":1},"message":"success"}
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763202 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763203 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763231 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763232 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763232 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763259 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763259 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763260 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763287 ] - [ DEBUG ]  <==      Total: 0
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763288 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763288 ] - [ DEBUG ]  ==> Parameters: 7(Integer)
+2021-04-10 09:58:04  [ http-nio-8086-exec-6:763319 ] - [ DEBUG ]  <==      Total: 0

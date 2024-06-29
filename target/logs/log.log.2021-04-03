@@ -1,0 +1,159 @@
+2021-04-03 13:30:30  [ main:1 ] - [ DEBUG ]  Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2021-04-03 13:30:30  [ main:9 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.CooperateParentChild matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:10 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Car matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:10 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Child matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:12 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Parent matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:12 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.License matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:13 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.CooperateView matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:14 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Cooperate matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:14 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.base.HttpUtil matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:14 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.base.BaseResponse matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:15 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.base.User matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:41 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-03 13:30:30  [ main:41 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-03 13:30:30  [ main:42 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-03 13:30:30  [ main:42 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-03 13:30:30  [ main:45 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.InitMapper matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:47 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.UserMapper matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:47 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.ChildMapper matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:48 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.ParentMapper matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:48 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.LicenseMapper matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:49 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.CooperateMapper matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:49 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.CooperateParentChildMapper matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:49 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.CarMapper matches criteria [is assignable to Object]
+2021-04-03 13:30:30  [ main:265 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-03 13:30:33  [ main:3134 ] - [ DEBUG ]  Created connection 1416415959.
+2021-04-03 13:30:33  [ main:3137 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS car ( `id` int unsigned NOT NULL AUTO_INCREMENT, `color` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色', `carnumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号', PRIMARY KEY (`id`) ) COMMENT ='车辆表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 13:30:33  [ main:3173 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 13:30:33  [ main:3262 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 13:30:33  [ main:3263 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS child ( `id` int unsigned NOT NULL AUTO_INCREMENT, `openid` varchar(40) NOT NULL COMMENT '学生openid', `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生姓名', `sex` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '学生性别', `school` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校名称', `stuclass` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生班级', `schooladdr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校地址', `homeaddr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生家庭住址', `phone` varchar(11) NOT NULL COMMENT '学生手机号', PRIMARY KEY (`id`) ) COMMENT ='孩子表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 13:30:33  [ main:3264 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 13:30:33  [ main:3320 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 13:30:33  [ main:3321 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS cooperate ( `id` int unsigned NOT NULL AUTO_INCREMENT, `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合作订单创建时间', `driverid` int unsigned NOT NULL COMMENT '司机ID', `state` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '司机接送状态', `maxstu` tinyint unsigned NOT NULL COMMENT '最多接学生数', `locate` varchar(255) NOT NULL DEFAULT '' COMMENT '司机位置', `locateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '司机定位时间', `carid` int unsigned NOT NULL DEFAULT '0' COMMENT '车辆ID', `departureTime` datetime DEFAULT NULL COMMENT '出发时间', `arriveTime` datetime DEFAULT NULL COMMENT '到学校时间', `leftTime` datetime DEFAULT NULL COMMENT '离开学校时间', `overTime` datetime DEFAULT NULL COMMENT '订单完成时间', PRIMARY KEY (`id`) ) COMMENT ='合作母表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 13:30:33  [ main:3322 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 13:30:33  [ main:3585 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 13:30:33  [ main:3586 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS cooperateParentChild ( `id` int unsigned NOT NULL AUTO_INCREMENT, `cooperateid` int unsigned NOT NULL COMMENT '合作订单ID', `parentid` int unsigned NOT NULL COMMENT '家长ID', `childid` int unsigned NOT NULL COMMENT '学生ID', `childAddr` varchar(40) NOT NULL COMMENT '被接学生的地址', `state` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '接车状态', `dismistime` datetime NOT NULL COMMENT '放学时间', `cooperatetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始合作时间', `destinationAddr` varchar(40) NOT NULL COMMENT '目的地址', `oncartime` datetime DEFAULT NULL COMMENT '上车时间', `overtime` datetime DEFAULT NULL COMMENT '到达或放弃合作时间', PRIMARY KEY (`id`) ) COMMENT ='合作子表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 13:30:33  [ main:3587 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 13:30:33  [ main:3689 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 13:30:33  [ main:3690 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS license ( `id` int unsigned NOT NULL AUTO_INCREMENT, `driverid` int unsigned NOT NULL COMMENT '驾照持有者ID', PRIMARY KEY (`id`) ) COMMENT ='驾驶证表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 13:30:33  [ main:3690 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 13:30:33  [ main:3754 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 13:30:33  [ main:3755 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS parent ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `openid` varchar(40) NOT NULL COMMENT '家长openid', `name` varchar(32) NOT NULL COMMENT '家长姓名', `sex` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '家长性别', `phone` varchar(11) NOT NULL COMMENT '家长手机号', `idnumber` varchar(18) NOT NULL COMMENT '家长身份证号', `licenseid` int unsigned NOT NULL DEFAULT '0' COMMENT '家长驾照ID', PRIMARY KEY (`id`) ) COMMENT ='家长表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 13:30:33  [ main:3756 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 13:30:34  [ main:4060 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 13:30:34  [ main:4061 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS parentChild ( `id` int unsigned NOT NULL AUTO_INCREMENT, `parentid` int unsigned NOT NULL COMMENT '家长ID', `childid` int unsigned NOT NULL COMMENT '学生ID', PRIMARY KEY (`id`) ) COMMENT ='家长孩子关系表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 13:30:34  [ main:4063 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 13:30:34  [ main:4359 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 13:30:34  [ main:4360 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS driverCar ( `id` int unsigned NOT NULL AUTO_INCREMENT, `driverid` int DEFAULT NULL COMMENT '司机ID', `carid` int DEFAULT NULL COMMENT '车辆ID', PRIMARY KEY (`id`) ) COMMENT ='司机车辆关系表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 13:30:34  [ main:4361 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 13:30:34  [ main:4417 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 13:30:34  [ main:4420 ] - [ DEBUG ]  ==>  Preparing: SELECT COUNT(*) FROM information_schema.TABLES t, information_schema.SCHEMATA n WHERE t.table_name = ? AND n.SCHEMA_NAME = ?; 
+2021-04-03 13:30:34  [ main:4421 ] - [ DEBUG ]  ==> Parameters: cooperateView(String), carpool(String)
+2021-04-03 13:30:34  [ main:4579 ] - [ DEBUG ]  <==      Total: 1
+2021-04-03 13:30:34  [ main:4581 ] - [ DEBUG ]  ==>  Preparing: SELECT COUNT(*) FROM information_schema.TRIGGERS t WHERE TRIGGER_NAME = ? AND TRIGGER_SCHEMA = ?; 
+2021-04-03 13:30:34  [ main:4582 ] - [ DEBUG ]  ==> Parameters: updateTime(String), carpool(String)
+2021-04-03 13:30:34  [ main:4619 ] - [ DEBUG ]  <==      Total: 1
+2021-04-03 13:30:35  [ main:5200 ] - [ DEBUG ]  Property 'configuration' or 'configLocation' not specified, using default MyBatis Configuration
+2021-04-03 13:30:35  [ main:5204 ] - [ DEBUG ]  Property 'mapperLocations' was not specified or no matching resources found
+2021-04-03 13:30:35  [ main:5641 ] - [ INFO ]  Server listening on https://127.0.0.1:8086
+2021-04-03 13:30:56  [ http-nio-8086-exec-1:26373 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-03 13:30:57  [ http-nio-8086-exec-1:27063 ] - [ DEBUG ]  Created connection 880504733.
+2021-04-03 13:30:57  [ http-nio-8086-exec-1:27064 ] - [ DEBUG ]  ==>  Preparing: SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=?)-(SELECT COUNT(*) FROM child WHERE `child`.`openid`=?) AS userType; 
+2021-04-03 13:30:57  [ http-nio-8086-exec-1:27067 ] - [ DEBUG ]  ==> Parameters: obk6s5b0ZxLbscGXDCiRt1sRX1HM(String), obk6s5b0ZxLbscGXDCiRt1sRX1HM(String)
+2021-04-03 13:30:57  [ http-nio-8086-exec-1:27105 ] - [ DEBUG ]  <==      Total: 1
+2021-04-03 13:30:57  [ http-nio-8086-exec-1:27109 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-03 13:30:57  [ http-nio-8086-exec-1:27631 ] - [ DEBUG ]  Created connection 381376797.
+2021-04-03 13:30:57  [ http-nio-8086-exec-1:27632 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY) OR state != 4; 
+2021-04-03 13:30:57  [ http-nio-8086-exec-1:27633 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 13:30:57  [ http-nio-8086-exec-1:27711 ] - [ DEBUG ]  <==      Total: 0
+2021-04-03 13:30:57  [ http-nio-8086-exec-1:27820 ] - [ INFO ]  /getUserInfo Response:{"code":305005,"data":{"nearCooperate":[]},"message":"用户未注册"}
+2021-04-03 13:30:58  [ http-nio-8086-exec-2:27982 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-03 13:30:58  [ http-nio-8086-exec-2:28250 ] - [ DEBUG ]  Created connection 1448419218.
+2021-04-03 13:30:58  [ http-nio-8086-exec-2:28251 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-03 13:30:58  [ http-nio-8086-exec-2:28251 ] - [ DEBUG ]  ==> Parameters: 123(String)
+2021-04-03 13:30:58  [ http-nio-8086-exec-2:28284 ] - [ DEBUG ]  <==      Total: 1
+2021-04-03 13:30:58  [ http-nio-8086-exec-2:28285 ] - [ DEBUG ]  ==>  Preparing: INSERT INTO `carpool`.`parent`(`openid`, `name`, `sex`, `phone`, `idnumber`, `licenseid`) VALUES (?, ?, ?, ?, ?, ?); 
+2021-04-03 13:31:35  [ http-nio-8086-exec-3:65544 ] - [ INFO ]  /getUserInfo Response:{"code":305005,"data":{"nearCooperate":[]},"message":"用户未注册"}
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65687 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65688 ] - [ DEBUG ]  ==> Parameters: 123(String)
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65713 ] - [ DEBUG ]  <==      Total: 1
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65713 ] - [ DEBUG ]  ==>  Preparing: INSERT INTO `carpool`.`parent`(`openid`, `name`, `sex`, `phone`, `idnumber`, `licenseid`) VALUES (?, ?, ?, ?, ?, ?); 
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65714 ] - [ DEBUG ]  ==> Parameters: 123(String), 123(String), 1(Integer), 1(String), 1(String), 0(Integer)
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65773 ] - [ DEBUG ]  <==    Updates: 1
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65785 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM car WHERE id = any (SELECT carid FROM `driverCar` WHERE driverid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65785 ] - [ DEBUG ]  ==> Parameters: 123(String)
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65814 ] - [ DEBUG ]  <==      Total: 0
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65815 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM child WHERE id = any (SELECT childid FROM `parentChild` WHERE parentid = (SELECT id FROM `parent` WHERE openid = ?)); 
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65815 ] - [ DEBUG ]  ==> Parameters: 123(String)
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65843 ] - [ DEBUG ]  <==      Total: 0
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65844 ] - [ DEBUG ]  ==>  Preparing: SELECT * FROM cooperateView WHERE driverid = ?; 
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65845 ] - [ DEBUG ]  ==> Parameters: 0(Integer)
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65875 ] - [ DEBUG ]  <==      Total: 0
+2021-04-03 13:31:35  [ http-nio-8086-exec-4:65877 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-03 13:31:36  [ http-nio-8086-exec-4:66210 ] - [ DEBUG ]  Created connection 1663084826.
+2021-04-03 13:31:36  [ http-nio-8086-exec-4:66211 ] - [ DEBUG ]  ==>  Preparing: select * from license where driverid = ? 
+2021-04-03 13:31:36  [ http-nio-8086-exec-4:66211 ] - [ DEBUG ]  ==> Parameters: 0(Integer)
+2021-04-03 13:31:36  [ http-nio-8086-exec-4:66247 ] - [ DEBUG ]  <==      Total: 0
+2021-04-03 13:31:36  [ http-nio-8086-exec-4:66248 ] - [ INFO ]  /register Request:{"Parent":{"cars":[],"children":[],"cooperates":[],"id":0,"idnumber":"1","licenseid":0,"name":"123","openid":"123","phone":"1","sex":1}},Response:{"code":0,"data":1,"message":"success"}
+2021-04-03 13:32:27  [ http-nio-8086-exec-5:117448 ] - [ INFO ]  /getUserInfo Response:{"code":305005,"data":{"nearCooperate":[]},"message":"用户未注册"}
+2021-04-03 13:32:27  [ http-nio-8086-exec-6:117597 ] - [ DEBUG ]  ==>  Preparing: select COUNT(*) from parent WHERE openid = ?; 
+2021-04-03 13:32:27  [ http-nio-8086-exec-6:117598 ] - [ DEBUG ]  ==> Parameters: 123(String)
+2021-04-03 13:32:27  [ http-nio-8086-exec-6:117626 ] - [ DEBUG ]  <==      Total: 1
+2021-04-03 13:32:27  [ http-nio-8086-exec-6:117626 ] - [ INFO ]  /register Request:{"Parent":{"cars":[],"children":[],"cooperates":[],"id":0,"idnumber":"123","licenseid":0,"name":"123","openid":"123","phone":"123","sex":1}},Response:{"code":305004,"message":"家长已经注册"}
+2021-04-03 14:25:47  [ main:0 ] - [ DEBUG ]  Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2021-04-03 14:25:47  [ main:6 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.CooperateParentChild matches criteria [is assignable to Object]
+2021-04-03 14:25:47  [ main:7 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Car matches criteria [is assignable to Object]
+2021-04-03 14:25:47  [ main:8 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Child matches criteria [is assignable to Object]
+2021-04-03 14:25:47  [ main:9 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Parent matches criteria [is assignable to Object]
+2021-04-03 14:25:47  [ main:10 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.License matches criteria [is assignable to Object]
+2021-04-03 14:25:47  [ main:11 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.CooperateView matches criteria [is assignable to Object]
+2021-04-03 14:25:47  [ main:13 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.Cooperate matches criteria [is assignable to Object]
+2021-04-03 14:25:47  [ main:13 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.base.HttpUtil matches criteria [is assignable to Object]
+2021-04-03 14:25:47  [ main:14 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.base.BaseResponse matches criteria [is assignable to Object]
+2021-04-03 14:25:47  [ main:15 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.entity.base.User matches criteria [is assignable to Object]
+2021-04-03 14:25:48  [ main:42 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-03 14:25:48  [ main:43 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-03 14:25:48  [ main:43 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-03 14:25:48  [ main:44 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-04-03 14:25:48  [ main:48 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.InitMapper matches criteria [is assignable to Object]
+2021-04-03 14:25:48  [ main:50 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.UserMapper matches criteria [is assignable to Object]
+2021-04-03 14:25:48  [ main:50 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.ChildMapper matches criteria [is assignable to Object]
+2021-04-03 14:25:48  [ main:51 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.ParentMapper matches criteria [is assignable to Object]
+2021-04-03 14:25:48  [ main:51 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.LicenseMapper matches criteria [is assignable to Object]
+2021-04-03 14:25:48  [ main:52 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.CooperateMapper matches criteria [is assignable to Object]
+2021-04-03 14:25:48  [ main:52 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.CooperateParentChildMapper matches criteria [is assignable to Object]
+2021-04-03 14:25:48  [ main:53 ] - [ DEBUG ]  Checking to see if class com.xidian.carpool.mapper.CarMapper matches criteria [is assignable to Object]
+2021-04-03 14:25:48  [ main:268 ] - [ DEBUG ]  Opening JDBC Connection
+2021-04-03 14:25:49  [ main:1584 ] - [ DEBUG ]  Created connection 1416415959.
+2021-04-03 14:25:49  [ main:1588 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS car ( `id` int unsigned NOT NULL AUTO_INCREMENT, `color` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色', `carnumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号', PRIMARY KEY (`id`) ) COMMENT ='车辆表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 14:25:49  [ main:1641 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 14:25:49  [ main:1720 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 14:25:49  [ main:1722 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS child ( `id` int unsigned NOT NULL AUTO_INCREMENT, `openid` varchar(40) NOT NULL COMMENT '学生openid', `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生姓名', `sex` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '学生性别', `school` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校名称', `stuclass` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生班级', `schooladdr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校地址', `homeaddr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生家庭住址', `phone` varchar(11) NOT NULL COMMENT '学生手机号', PRIMARY KEY (`id`) ) COMMENT ='孩子表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 14:25:49  [ main:1724 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 14:25:50  [ main:2044 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 14:25:50  [ main:2046 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS cooperate ( `id` int unsigned NOT NULL AUTO_INCREMENT, `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合作订单创建时间', `driverid` int unsigned NOT NULL COMMENT '司机ID', `state` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '司机接送状态', `maxstu` tinyint unsigned NOT NULL COMMENT '最多接学生数', `locate` varchar(255) NOT NULL DEFAULT '' COMMENT '司机位置', `locateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '司机定位时间', `carid` int unsigned NOT NULL DEFAULT '0' COMMENT '车辆ID', `departureTime` datetime DEFAULT NULL COMMENT '出发时间', `arriveTime` datetime DEFAULT NULL COMMENT '到学校时间', `leftTime` datetime DEFAULT NULL COMMENT '离开学校时间', `overTime` datetime DEFAULT NULL COMMENT '订单完成时间', PRIMARY KEY (`id`) ) COMMENT ='合作母表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 14:25:50  [ main:2047 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 14:25:50  [ main:2130 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 14:25:50  [ main:2131 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS cooperateParentChild ( `id` int unsigned NOT NULL AUTO_INCREMENT, `cooperateid` int unsigned NOT NULL COMMENT '合作订单ID', `parentid` int unsigned NOT NULL COMMENT '家长ID', `childid` int unsigned NOT NULL COMMENT '学生ID', `childAddr` varchar(40) NOT NULL COMMENT '被接学生的地址', `state` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '接车状态', `dismistime` datetime NOT NULL COMMENT '放学时间', `cooperatetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始合作时间', `destinationAddr` varchar(40) NOT NULL COMMENT '目的地址', `oncartime` datetime DEFAULT NULL COMMENT '上车时间', `overtime` datetime DEFAULT NULL COMMENT '到达或放弃合作时间', PRIMARY KEY (`id`) ) COMMENT ='合作子表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 14:25:50  [ main:2133 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 14:25:50  [ main:2220 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 14:25:50  [ main:2221 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS license ( `id` int unsigned NOT NULL AUTO_INCREMENT, `driverid` int unsigned NOT NULL COMMENT '驾照持有者ID', PRIMARY KEY (`id`) ) COMMENT ='驾驶证表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 14:25:50  [ main:2222 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 14:25:50  [ main:2299 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 14:25:50  [ main:2301 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS parent ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `openid` varchar(40) NOT NULL COMMENT '家长openid', `name` varchar(32) NOT NULL COMMENT '家长姓名', `sex` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '家长性别', `phone` varchar(11) NOT NULL COMMENT '家长手机号', `idnumber` varchar(18) NOT NULL COMMENT '家长身份证号', `licenseid` int unsigned NOT NULL DEFAULT '0' COMMENT '家长驾照ID', PRIMARY KEY (`id`) ) COMMENT ='家长表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 14:25:50  [ main:2302 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 14:25:50  [ main:2384 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 14:25:50  [ main:2386 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS parentChild ( `id` int unsigned NOT NULL AUTO_INCREMENT, `parentid` int unsigned NOT NULL COMMENT '家长ID', `childid` int unsigned NOT NULL COMMENT '学生ID', PRIMARY KEY (`id`) ) COMMENT ='家长孩子关系表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 14:25:50  [ main:2387 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 14:25:50  [ main:2466 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 14:25:50  [ main:2468 ] - [ DEBUG ]  ==>  Preparing: CREATE TABLE IF NOT EXISTS driverCar ( `id` int unsigned NOT NULL AUTO_INCREMENT, `driverid` int DEFAULT NULL COMMENT '司机ID', `carid` int DEFAULT NULL COMMENT '车辆ID', PRIMARY KEY (`id`) ) COMMENT ='司机车辆关系表' ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci; 
+2021-04-03 14:25:50  [ main:2469 ] - [ DEBUG ]  ==> Parameters: 
+2021-04-03 14:25:50  [ main:2539 ] - [ DEBUG ]  <==    Updates: 0
+2021-04-03 14:25:50  [ main:2543 ] - [ DEBUG ]  ==>  Preparing: SELECT COUNT(*) FROM information_schema.TABLES t, information_schema.SCHEMATA n WHERE t.table_name = ? AND n.SCHEMA_NAME = ?; 
+2021-04-03 14:25:50  [ main:2544 ] - [ DEBUG ]  ==> Parameters: cooperateView(String), carpool(String)
+2021-04-03 14:25:50  [ main:2610 ] - [ DEBUG ]  <==      Total: 1
+2021-04-03 14:25:50  [ main:2612 ] - [ DEBUG ]  ==>  Preparing: SELECT COUNT(*) FROM information_schema.TRIGGERS t WHERE TRIGGER_NAME = ? AND TRIGGER_SCHEMA = ?; 
+2021-04-03 14:25:50  [ main:2613 ] - [ DEBUG ]  ==> Parameters: updateTime(String), carpool(String)
+2021-04-03 14:25:50  [ main:2644 ] - [ DEBUG ]  <==      Total: 1
+2021-04-03 14:25:51  [ main:3090 ] - [ DEBUG ]  Property 'configuration' or 'configLocation' not specified, using default MyBatis Configuration
+2021-04-03 14:25:51  [ main:3091 ] - [ DEBUG ]  Property 'mapperLocations' was not specified or no matching resources found

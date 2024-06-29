@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.carpool.mapper.CooperateParentChildMapper">
+    <insert id="addCPC" keyProperty="id">
+        INSERT INTO `cooperateParentChild`(`cooperateid`, `parentid`, `childid`, `childAddr`, `dismistime`,
+                                                     `destinationAddr`)
+        VALUES (#{cooperateid}, #{parentid}, #{childid}, #{childAddr}, #{dismistime}, #{destinationAddr});
+    </insert>
+    <insert id="addApplyCPC" keyProperty="id">
+        INSERT INTO `applyJoin`(`cooperateid`, `parentid`, `childid`, `childAddr`, `dismistime`,
+                                          `destinationAddr`, `driverid`)
+        VALUES (#{cooperateid}, #{parentid}, #{childid}, #{childAddr}, #{dismistime}, #{destinationAddr}, #{driverid});
+    </insert>
+    <select id="atDBid" resultType="int">
+        select COUNT(*)
+        from cooperateParentChild
+        WHERE id = #{id};
+    </select>
+    <update id="updateCPC">
+        UPDATE `cooperateParentChild`
+        SET `state` = #{state}
+        <if test="state==1">
+            ,`oncartime`=now()
+        </if>
+        <if test="state==2 or state==3">
+            ,`overtime`=now()
+        </if>
+        WHERE `id` = #{id};
+    </update>
+    <select id="fillByID" resultType="com.xidian.carpool.entity.CooperateParentChild">
+        SELECT *
+        FROM cooperateParentChild
+        WHERE id = #{id};
+    </select>
+    <select id="getCPCByCooperateID" resultType="com.xidian.carpool.entity.CooperateParentChild">
+        SELECT *
+        FROM cooperateParentChild
+        WHERE cooperateid = #{cooperateID};
+    </select>
+    <select id="getCPCsByChildID" resultType="com.xidian.carpool.entity.CooperateParentChild">
+        SELECT *
+        FROM cooperateParentChild
+        WHERE childid = #{childID};
+    </select>
+    <select id="getApplyCPCByID" resultType="com.xidian.carpool.entity.CooperateParentChild">
+        SELECT *
+        FROM applyJoin
+        WHERE id = #{id};
+    </select>
+    <update id="handleApplyCPC">
+        UPDATE applyJoin
+        SET state=#{toState}
+        WHERE id = #{id}
+          AND state = #{fromState};
+    </update>
+</mapper>

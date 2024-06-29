@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: com.xidian.carpool.controller.ParentControllerTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in com.xidian.carpool.controller.ParentControllerTest
+addcar  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.xidian.carpool.controller.ParentControllerTest.addcar(ParentControllerTest.java:36)
+
+addChild  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.xidian.carpool.controller.ParentControllerTest.addChild(ParentControllerTest.java:26)
+
+register  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.xidian.carpool.controller.ParentControllerTest.register(ParentControllerTest.java:21)
+
+upgrade  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.xidian.carpool.controller.ParentControllerTest.upgrade(ParentControllerTest.java:31)
+
+bond  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.xidian.carpool.controller.ParentControllerTest.bond(ParentControllerTest.java:41)
+

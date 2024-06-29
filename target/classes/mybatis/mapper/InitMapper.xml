@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.carpool.mapper.InitMapper">
+    <select id="existTrigger" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM information_schema.TRIGGERS t
+        WHERE TRIGGER_NAME = #{triggerName}
+          AND TRIGGER_SCHEMA = #{dbName};
+    </select>
+    <select id="existTable" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM information_schema.TABLES t,
+             information_schema.SCHEMATA n
+        WHERE t.table_name = #{tableName}
+          AND n.SCHEMA_NAME = #{dbName};
+    </select>
+    <update id="initCarTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`        int unsigned                                                 NOT NULL AUTO_INCREMENT,
+            `color`     varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色',
+            `carnumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='车辆表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+    <update id="initChildTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`         int unsigned                                                  NOT NULL AUTO_INCREMENT,
+            `openid`     varchar(40)                                                   NOT NULL COMMENT '学生openid',
+            `name`       varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生姓名',
+            `sex`        tinyint unsigned                                              NOT NULL DEFAULT '0' COMMENT '学生性别',
+            `stuclass`   varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生班级',
+            `schooladdr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校地址',
+            `homeaddr`   varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生家庭住址',
+            `phone`      varchar(11)                                                   NOT NULL COMMENT '学生手机号',
+            `avatarUrl`  varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci          DEFAULT NULL COMMENT '用户头像地址',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='孩子表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+    <update id="initCooperateTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`             int unsigned     NOT NULL AUTO_INCREMENT,
+            `datetime`       datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合作订单创建时间',
+            `driverid`       int unsigned     NOT NULL COMMENT '司机ID',
+            `state`          tinyint unsigned NOT NULL DEFAULT '0' COMMENT '司机接送状态',
+            `maxstu`         tinyint unsigned NOT NULL COMMENT '最多接学生数',
+            `locate`         varchar(255)     NOT NULL DEFAULT '' COMMENT '司机位置',
+            `locateTime`     datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '司机定位时间',
+            `carid`          int unsigned     NOT NULL DEFAULT '0' COMMENT '车辆ID',
+            `departureTime`  datetime                  DEFAULT NULL COMMENT '出发时间',
+            `arriveTime`     datetime                  DEFAULT NULL COMMENT '到学校时间',
+            `leftTime`       datetime                  DEFAULT NULL COMMENT '离开学校时间',
+            `overTime`       datetime                  DEFAULT NULL COMMENT '订单完成时间',
+            `departure`      varchar(255)              DEFAULT NULL COMMENT '出发地',
+            `destination`    varchar(255)              DEFAULT NULL COMMENT '目的地',
+            `planArriveTime` datetime                  DEFAULT NULL COMMENT '计划到达时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作母表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+    <update id="initCPCTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`              int unsigned     NOT NULL AUTO_INCREMENT,
+            `cooperateid`     int unsigned     NOT NULL COMMENT '合作订单ID',
+            `parentid`        int unsigned                                                 DEFAULT NULL COMMENT '家长ID',
+            `childid`         int unsigned     NOT NULL COMMENT '学生ID',
+            `childAddr`       varchar(255)     NOT NULL COMMENT '被接学生的地址',
+            `state`           tinyint unsigned NOT NULL                                    DEFAULT '0' COMMENT '接车状态',
+            `dismistime`      datetime         NOT NULL COMMENT '放学时间',
+            `cooperatetime`   datetime         NOT NULL                                    DEFAULT CURRENT_TIMESTAMP COMMENT '开始合作时间',
+            `destinationAddr` varchar(255)     NOT NULL COMMENT '目的地址',
+            `oncartime`       datetime                                                     DEFAULT NULL COMMENT '上车时间',
+            `overtime`        datetime                                                     DEFAULT NULL COMMENT '到达或放弃合作时间',
+            `childName`       varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '孩子姓名',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作子表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+    <update id="initLicenseTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int unsigned NOT NULL COMMENT '驾照持有者ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='驾驶证表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+    <update id="initParentTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`        int unsigned     NOT NULL AUTO_INCREMENT,
+            `openid`    varchar(40)      NOT NULL COMMENT '家长openid',
+            `name`      varchar(32)      NOT NULL COMMENT '家长姓名',
+            `sex`       tinyint unsigned NOT NULL DEFAULT '0' COMMENT '家长性别',
+            `phone`     varchar(11)      NOT NULL COMMENT '家长手机号',
+            `idnumber`  varchar(18)      NOT NULL COMMENT '家长身份证号',
+            `licenseid` int unsigned     NOT NULL DEFAULT '0' COMMENT '家长驾照ID',
+            `avatarUrl` varchar(255)     NOT NULL COMMENT '用户头像地址',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+    <update id="initPCTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `parentid` int unsigned NOT NULL COMMENT '家长ID',
+            `childid`  int unsigned NOT NULL COMMENT '学生ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长孩子关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+    <update id="initDriverCarTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int DEFAULT NULL COMMENT '司机ID',
+            `carid`    int DEFAULT NULL COMMENT '车辆ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='司机车辆关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+    <update id="initVerifyTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`        int unsigned                                                 NOT NULL AUTO_INCREMENT,
+            `openid`    varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '用户openid',
+            `carNumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号',
+            `carColor`  varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色',
+            `accept`    tinyint unsigned                                             NOT NULL DEFAULT '0' COMMENT '审核状态0待审核 1通过 2拒绝',
+            `type`      tinyint unsigned                                             NOT NULL DEFAULT '0' COMMENT '种类 0升级车主 1添加车辆',
+            `index`     int unsigned                                                 NOT NULL DEFAULT '0' COMMENT 'type=1时有效，此人添加车辆记录',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='爱心车主及车辆添加审核表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+    <update id="initApplyJoinTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`              int unsigned                                                  NOT NULL AUTO_INCREMENT,
+            `childid`         int unsigned                                                  NOT NULL COMMENT '孩子ID',
+            `cooperateid`     int unsigned                                                  NOT NULL COMMENT '订单ID',
+            `state`           tinyint unsigned                                              NOT NULL DEFAULT '0' COMMENT '申请状态 0正在申请 1 同意 2 拒绝 3 已取消',
+            `driverid`        int                                                           NOT NULL COMMENT '订单司机ID',
+            `childAddr`       varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '被接学生的地址',
+            `parentid`        int                                                                    DEFAULT NULL COMMENT '代为申请的家长的ID',
+            `dismistime`      datetime                                                      NOT NULL COMMENT '放学时间',
+            `destinationAddr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '目的地址',
+            `applyTime`       datetime                                                               DEFAULT CURRENT_TIMESTAMP,
+            `hanldeTime`      datetime                                                               DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY (`id`) USING BTREE
+        ) COMMENT ='拼车申请表' ENGINE = InnoDB
+                           DEFAULT CHARSET = utf8mb4
+                           COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+    <update id="initCooperateView">
+        CREATE VIEW ${viewName} AS
+        select distinct `cooperate`.`id`                                                  AS `id`,
+                        `cooperate`.`datetime`                                            AS `datetime`,
+                        `cooperate`.`state`                                               AS `state`,
+                        `cooperate`.`driverid`                                            AS `driverid`,
+                        `cooperate`.`maxstu`                                              AS `maxstu`,
+                        `cooperate`.`locate`                                              AS `locate`,
+                        `cooperate`.`locateTime`                                          AS `locateTime`,
+                        `cooperate`.`carid`                                               AS `carid`,
+                        `cooperate`.`departureTime`                                       AS `departureTime`,
+                        `cooperate`.`arriveTime`                                          AS `arriveTime`,
+                        `cooperate`.`leftTime`                                            AS `leftTime`,
+                        `cooperate`.`overTime`                                            AS `overTime`,
+                        `cooperate`.`departure`                                           AS `departure`,
+                        `cooperate`.`destination`                                         AS `destination`,
+                        `cooperate`.`planArriveTime`                                      AS `planArriveTime`,
+                        (select count(0)
+                         from `cooperateParentChild`
+                         where (`cooperateParentChild`.`cooperateid` = `cooperate`.`id`)) AS `shouldPickStuNum`,
+                        (select count(0)
+                         from `cooperateParentChild`
+                         where ((`cooperateParentChild`.`cooperateid` = `cooperate`.`id`) and
+                                (`cooperateParentChild`.`state` = 1)))                    AS `stuNumAtCar`,
+                        (select `parent`.`name`
+                         from `parent`
+                         where (`parent`.`id` = `cooperate`.`driverid`))                  AS `driverName`,
+                        (select `parent`.`openid`
+                         from `parent`
+                         where (`parent`.`id` = `cooperate`.`driverid`))                  AS `driverOpenid`,
+                        (select `parent`.`avatarUrl`
+                         from `parent`
+                         where (`parent`.`id` = `cooperate`.`driverid`))                  AS `driverAvatarUrl`,
+                        (select `parent`.`phone`
+                         from `parent`
+                         where (`parent`.`id` = `cooperate`.`driverid`))                  AS `driverPhone`,
+                        (select `parent`.`sex`
+                         from `parent`
+                         where (`parent`.`id` = `cooperate`.`driverid`))                  AS `driverSex`,
+                        (select `car`.`color`
+                         from `car`
+                         where (`car`.`id` = `cooperate`.`carid`))                        AS `carColor`,
+                        (select `car`.`carnumber`
+                         from `car`
+                         where (`car`.`id` = `cooperate`.`carid`))                        AS `carNumber`
+        from `cooperate`;
+    </update>
+    <update id="updateTimeTrigger">
+        <!--写ELSEIF总是报错-->
+        CREATE TRIGGER `${triggerName}`
+        BEFORE UPDATE
+        ON `cooperate`
+        FOR EACH ROW IF (OLD.state != NEW.state) THEN
+        IF (NEW.state = 1) THEN
+        SET NEW.departureTime = CURRENT_TIMESTAMP;
+        END IF;
+        IF (NEW.state = 2) THEN
+        SET NEW.arriveTime = CURRENT_TIMESTAMP;
+        END IF;
+        IF (NEW.state = 3) THEN
+        SET NEW.leftTime = CURRENT_TIMESTAMP;
+        END IF;
+        IF (NEW.state = 4) THEN
+        SET NEW.overTime = CURRENT_TIMESTAMP;
+        END IF;
+        END IF;
+    </update>
+    <update id="addChildNameTrigger">
+        CREATE TRIGGER `addChildName`
+            BEFORE INSERT
+            ON `cooperateParentChild`
+            FOR EACH ROW SET NEW.childName = (SELECT name
+                                              FROM child
+                                              WHERE id = new.childid);
+    </update>
+    <update id="initUnreceivedMessagesTable">
+        CREATE TABLE IF NOT EXISTS ${tableName}
+        (
+            `id`          int unsigned                                                  NOT NULL AUTO_INCREMENT,
+            `fromUID`     varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '消息发送方openid',
+            `toUID`       varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '消息接收方openid',
+            `time`        datetime                                                      NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '消息发送时间',
+            `data`        varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '消息内容',
+            `cooperateID` int                                                           NOT NULL COMMENT '订单ID',
+            PRIMARY KEY (`id`)
+        ) ENGINE = InnoDB COMMENT ='为接收到的信息表'
+          DEFAULT CHARSET = utf8mb4
+          COLLATE = utf8mb4_0900_ai_ci;
+    </update>
+</mapper>

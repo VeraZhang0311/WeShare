@@ -1,0 +1,876 @@
+2021-04-14 09:37:10  [ main:1 ] - [ DEBUG ]  {conn-10001,procId-3953342} connected
+2021-04-14 09:37:11  [ main:778 ] - [ DEBUG ]  {conn-10002,procId-3953343} connected
+2021-04-14 09:37:12  [ main:1909 ] - [ DEBUG ]  {conn-10003,procId-3953344} connected
+2021-04-14 09:37:13  [ main:2842 ] - [ DEBUG ]  {conn-10004,procId-3953345} connected
+2021-04-14 09:37:14  [ main:3583 ] - [ DEBUG ]  {conn-10005,procId-3953346} connected
+2021-04-14 09:37:14  [ main:3723 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:37:14  [ main:3994 ] - [ DEBUG ]  {conn-10005, pstmt-20000} created. CREATE TABLE IF NOT EXISTS car
+        (
+            `id`        int unsigned                                                 NOT NULL AUTO_INCREMENT,
+            `color`     varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色',
+            `carnumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='车辆表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4001 ] - [ DEBUG ]  {conn-10005, pstmt-20000} Parameters : []
+2021-04-14 09:37:14  [ main:4001 ] - [ DEBUG ]  {conn-10005, pstmt-20000} Types : []
+2021-04-14 09:37:14  [ main:4084 ] - [ DEBUG ]  {conn-10005, pstmt-20000} executed. 85.011616 millis. CREATE TABLE IF NOT EXISTS car
+        (
+            `id`        int unsigned                                                 NOT NULL AUTO_INCREMENT,
+            `color`     varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色',
+            `carnumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='车辆表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4085 ] - [ DEBUG ]  {conn-10005, pstmt-20000} clearParameters. 
+2021-04-14 09:37:14  [ main:4087 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:37:14  [ main:4088 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:37:14  [ main:4090 ] - [ DEBUG ]  {conn-10005, pstmt-20001} created. CREATE TABLE IF NOT EXISTS child
+        (
+            `id`         int unsigned                                                  NOT NULL AUTO_INCREMENT,
+            `openid`     varchar(40)                                                   NOT NULL COMMENT '学生openid',
+            `name`       varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生姓名',
+            `sex`        tinyint unsigned                                              NOT NULL DEFAULT '0' COMMENT '学生性别',
+            `stuclass`   varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生班级',
+            `schooladdr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校地址',
+            `homeaddr`   varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生家庭住址',
+            `phone`      varchar(11)                                                   NOT NULL COMMENT '学生手机号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='孩子表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4091 ] - [ DEBUG ]  {conn-10005, pstmt-20001} Parameters : []
+2021-04-14 09:37:14  [ main:4092 ] - [ DEBUG ]  {conn-10005, pstmt-20001} Types : []
+2021-04-14 09:37:14  [ main:4166 ] - [ DEBUG ]  {conn-10005, pstmt-20001} executed. 74.616395 millis. CREATE TABLE IF NOT EXISTS child
+        (
+            `id`         int unsigned                                                  NOT NULL AUTO_INCREMENT,
+            `openid`     varchar(40)                                                   NOT NULL COMMENT '学生openid',
+            `name`       varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生姓名',
+            `sex`        tinyint unsigned                                              NOT NULL DEFAULT '0' COMMENT '学生性别',
+            `stuclass`   varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生班级',
+            `schooladdr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校地址',
+            `homeaddr`   varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生家庭住址',
+            `phone`      varchar(11)                                                   NOT NULL COMMENT '学生手机号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='孩子表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4167 ] - [ DEBUG ]  {conn-10005, pstmt-20001} clearParameters. 
+2021-04-14 09:37:14  [ main:4168 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:37:14  [ main:4168 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:37:14  [ main:4173 ] - [ DEBUG ]  {conn-10005, pstmt-20002} created. CREATE TABLE IF NOT EXISTS cooperate
+        (
+            `id`            int unsigned     NOT NULL AUTO_INCREMENT,
+            `datetime`      datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合作订单创建时间',
+            `driverid`      int unsigned     NOT NULL COMMENT '司机ID',
+            `state`         tinyint unsigned NOT NULL DEFAULT '0' COMMENT '司机接送状态',
+            `maxstu`        tinyint unsigned NOT NULL COMMENT '最多接学生数',
+            `locate`        varchar(255)     NOT NULL DEFAULT '' COMMENT '司机位置',
+            `locateTime`    datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '司机定位时间',
+            `carid`         int unsigned     NOT NULL DEFAULT '0' COMMENT '车辆ID',
+            `departureTime` datetime                  DEFAULT NULL COMMENT '出发时间',
+            `arriveTime`    datetime                  DEFAULT NULL COMMENT '到学校时间',
+            `leftTime`      datetime                  DEFAULT NULL COMMENT '离开学校时间',
+            `overTime`      datetime                  DEFAULT NULL COMMENT '订单完成时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作母表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4174 ] - [ DEBUG ]  {conn-10005, pstmt-20002} Parameters : []
+2021-04-14 09:37:14  [ main:4174 ] - [ DEBUG ]  {conn-10005, pstmt-20002} Types : []
+2021-04-14 09:37:14  [ main:4283 ] - [ DEBUG ]  {conn-10005, pstmt-20002} executed. 108.481661 millis. CREATE TABLE IF NOT EXISTS cooperate
+        (
+            `id`            int unsigned     NOT NULL AUTO_INCREMENT,
+            `datetime`      datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合作订单创建时间',
+            `driverid`      int unsigned     NOT NULL COMMENT '司机ID',
+            `state`         tinyint unsigned NOT NULL DEFAULT '0' COMMENT '司机接送状态',
+            `maxstu`        tinyint unsigned NOT NULL COMMENT '最多接学生数',
+            `locate`        varchar(255)     NOT NULL DEFAULT '' COMMENT '司机位置',
+            `locateTime`    datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '司机定位时间',
+            `carid`         int unsigned     NOT NULL DEFAULT '0' COMMENT '车辆ID',
+            `departureTime` datetime                  DEFAULT NULL COMMENT '出发时间',
+            `arriveTime`    datetime                  DEFAULT NULL COMMENT '到学校时间',
+            `leftTime`      datetime                  DEFAULT NULL COMMENT '离开学校时间',
+            `overTime`      datetime                  DEFAULT NULL COMMENT '订单完成时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作母表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4284 ] - [ DEBUG ]  {conn-10005, pstmt-20002} clearParameters. 
+2021-04-14 09:37:14  [ main:4284 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:37:14  [ main:4285 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:37:14  [ main:4289 ] - [ DEBUG ]  {conn-10005, pstmt-20003} created. CREATE TABLE IF NOT EXISTS cooperateParentChild
+        (
+            `id`              int unsigned     NOT NULL AUTO_INCREMENT,
+            `cooperateid`     int unsigned     NOT NULL COMMENT '合作订单ID',
+            `parentid`        int unsigned     NOT NULL COMMENT '家长ID',
+            `childid`         int unsigned     NOT NULL COMMENT '学生ID',
+            `childAddr`       varchar(255)     NOT NULL COMMENT '被接学生的地址',
+            `state`           tinyint unsigned NOT NULL DEFAULT '0' COMMENT '接车状态',
+            `dismistime`      datetime         NOT NULL COMMENT '放学时间',
+            `cooperatetime`   datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始合作时间',
+            `destinationAddr` varchar(255)     NOT NULL COMMENT '目的地址',
+            `oncartime`       datetime                  DEFAULT NULL COMMENT '上车时间',
+            `overtime`        datetime                  DEFAULT NULL COMMENT '到达或放弃合作时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作子表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4291 ] - [ DEBUG ]  {conn-10005, pstmt-20003} Parameters : []
+2021-04-14 09:37:14  [ main:4292 ] - [ DEBUG ]  {conn-10005, pstmt-20003} Types : []
+2021-04-14 09:37:14  [ main:4364 ] - [ DEBUG ]  {conn-10005, pstmt-20003} executed. 72.468628 millis. CREATE TABLE IF NOT EXISTS cooperateParentChild
+        (
+            `id`              int unsigned     NOT NULL AUTO_INCREMENT,
+            `cooperateid`     int unsigned     NOT NULL COMMENT '合作订单ID',
+            `parentid`        int unsigned     NOT NULL COMMENT '家长ID',
+            `childid`         int unsigned     NOT NULL COMMENT '学生ID',
+            `childAddr`       varchar(255)     NOT NULL COMMENT '被接学生的地址',
+            `state`           tinyint unsigned NOT NULL DEFAULT '0' COMMENT '接车状态',
+            `dismistime`      datetime         NOT NULL COMMENT '放学时间',
+            `cooperatetime`   datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始合作时间',
+            `destinationAddr` varchar(255)     NOT NULL COMMENT '目的地址',
+            `oncartime`       datetime                  DEFAULT NULL COMMENT '上车时间',
+            `overtime`        datetime                  DEFAULT NULL COMMENT '到达或放弃合作时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作子表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4365 ] - [ DEBUG ]  {conn-10005, pstmt-20003} clearParameters. 
+2021-04-14 09:37:14  [ main:4366 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:37:14  [ main:4367 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:37:14  [ main:4369 ] - [ DEBUG ]  {conn-10005, pstmt-20004} created. CREATE TABLE IF NOT EXISTS license
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int unsigned NOT NULL COMMENT '驾照持有者ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='驾驶证表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4370 ] - [ DEBUG ]  {conn-10005, pstmt-20004} Parameters : []
+2021-04-14 09:37:14  [ main:4371 ] - [ DEBUG ]  {conn-10005, pstmt-20004} Types : []
+2021-04-14 09:37:14  [ main:4437 ] - [ DEBUG ]  {conn-10005, pstmt-20004} executed. 66.410198 millis. CREATE TABLE IF NOT EXISTS license
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int unsigned NOT NULL COMMENT '驾照持有者ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='驾驶证表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4437 ] - [ DEBUG ]  {conn-10005, pstmt-20004} clearParameters. 
+2021-04-14 09:37:14  [ main:4437 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:37:14  [ main:4438 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:37:14  [ main:4440 ] - [ DEBUG ]  {conn-10005, pstmt-20005} created. CREATE TABLE IF NOT EXISTS parent
+        (
+            `id`        int(10) unsigned NOT NULL AUTO_INCREMENT,
+            `openid`    varchar(40)      NOT NULL COMMENT '家长openid',
+            `name`      varchar(32)      NOT NULL COMMENT '家长姓名',
+            `sex`       tinyint unsigned NOT NULL DEFAULT '0' COMMENT '家长性别',
+            `phone`     varchar(11)      NOT NULL COMMENT '家长手机号',
+            `idnumber`  varchar(18)      NOT NULL COMMENT '家长身份证号',
+            `licenseid` int unsigned     NOT NULL DEFAULT '0' COMMENT '家长驾照ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:14  [ main:4441 ] - [ DEBUG ]  {conn-10005, pstmt-20005} Parameters : []
+2021-04-14 09:37:14  [ main:4441 ] - [ DEBUG ]  {conn-10005, pstmt-20005} Types : []
+2021-04-14 09:37:15  [ main:4546 ] - [ DEBUG ]  {conn-10005, pstmt-20005} executed. 104.77265 millis. CREATE TABLE IF NOT EXISTS parent
+        (
+            `id`        int(10) unsigned NOT NULL AUTO_INCREMENT,
+            `openid`    varchar(40)      NOT NULL COMMENT '家长openid',
+            `name`      varchar(32)      NOT NULL COMMENT '家长姓名',
+            `sex`       tinyint unsigned NOT NULL DEFAULT '0' COMMENT '家长性别',
+            `phone`     varchar(11)      NOT NULL COMMENT '家长手机号',
+            `idnumber`  varchar(18)      NOT NULL COMMENT '家长身份证号',
+            `licenseid` int unsigned     NOT NULL DEFAULT '0' COMMENT '家长驾照ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:15  [ main:4547 ] - [ DEBUG ]  {conn-10005, pstmt-20005} clearParameters. 
+2021-04-14 09:37:15  [ main:4547 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:37:15  [ main:4549 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:37:15  [ main:4552 ] - [ DEBUG ]  {conn-10005, pstmt-20006} created. CREATE TABLE IF NOT EXISTS parentChild
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `parentid` int unsigned NOT NULL COMMENT '家长ID',
+            `childid`  int unsigned NOT NULL COMMENT '学生ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长孩子关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:15  [ main:4554 ] - [ DEBUG ]  {conn-10005, pstmt-20006} Parameters : []
+2021-04-14 09:37:15  [ main:4555 ] - [ DEBUG ]  {conn-10005, pstmt-20006} Types : []
+2021-04-14 09:37:15  [ main:4636 ] - [ DEBUG ]  {conn-10005, pstmt-20006} executed. 81.421901 millis. CREATE TABLE IF NOT EXISTS parentChild
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `parentid` int unsigned NOT NULL COMMENT '家长ID',
+            `childid`  int unsigned NOT NULL COMMENT '学生ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长孩子关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:15  [ main:4637 ] - [ DEBUG ]  {conn-10005, pstmt-20006} clearParameters. 
+2021-04-14 09:37:15  [ main:4638 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:37:15  [ main:4639 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:37:15  [ main:4641 ] - [ DEBUG ]  {conn-10005, pstmt-20007} created. CREATE TABLE IF NOT EXISTS driverCar
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int DEFAULT NULL COMMENT '司机ID',
+            `carid`    int DEFAULT NULL COMMENT '车辆ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='司机车辆关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:15  [ main:4642 ] - [ DEBUG ]  {conn-10005, pstmt-20007} Parameters : []
+2021-04-14 09:37:15  [ main:4643 ] - [ DEBUG ]  {conn-10005, pstmt-20007} Types : []
+2021-04-14 09:37:15  [ main:4735 ] - [ DEBUG ]  {conn-10005, pstmt-20007} executed. 93.227741 millis. CREATE TABLE IF NOT EXISTS driverCar
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int DEFAULT NULL COMMENT '司机ID',
+            `carid`    int DEFAULT NULL COMMENT '车辆ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='司机车辆关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:37:15  [ main:4736 ] - [ DEBUG ]  {conn-10005, pstmt-20007} clearParameters. 
+2021-04-14 09:37:15  [ main:4737 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:37:15  [ main:4741 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:37:15  [ main:4808 ] - [ DEBUG ]  {conn-10005, pstmt-20008} created. SELECT COUNT(*)
+        FROM information_schema.TABLES t,
+             information_schema.SCHEMATA n
+        WHERE t.table_name = ?
+          AND n.SCHEMA_NAME = ?;
+2021-04-14 09:37:15  [ main:4810 ] - [ DEBUG ]  {conn-10005, pstmt-20008} Parameters : [cooperateView, carpool]
+2021-04-14 09:37:15  [ main:4810 ] - [ DEBUG ]  {conn-10005, pstmt-20008} Types : [VARCHAR, VARCHAR]
+2021-04-14 09:37:15  [ main:4877 ] - [ DEBUG ]  {conn-10005, pstmt-20008} executed. 67.101975 millis. SELECT COUNT(*)
+        FROM information_schema.TABLES t,
+             information_schema.SCHEMATA n
+        WHERE t.table_name = ?
+          AND n.SCHEMA_NAME = ?;
+2021-04-14 09:37:15  [ main:4880 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} open
+2021-04-14 09:37:15  [ main:4883 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} Header: [COUNT(*)]
+2021-04-14 09:37:15  [ main:4888 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} Result: [1]
+2021-04-14 09:37:15  [ main:4892 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} closed
+2021-04-14 09:37:15  [ main:4893 ] - [ DEBUG ]  {conn-10005, pstmt-20008} clearParameters. 
+2021-04-14 09:37:15  [ main:4894 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:37:15  [ main:4895 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:37:15  [ main:4896 ] - [ DEBUG ]  {conn-10005, pstmt-20009} created. SELECT COUNT(*)
+        FROM information_schema.TRIGGERS t
+        WHERE TRIGGER_NAME = ?
+          AND TRIGGER_SCHEMA = ?;
+2021-04-14 09:37:15  [ main:4897 ] - [ DEBUG ]  {conn-10005, pstmt-20009} Parameters : [updateTime, carpool]
+2021-04-14 09:37:15  [ main:4897 ] - [ DEBUG ]  {conn-10005, pstmt-20009} Types : [VARCHAR, VARCHAR]
+2021-04-14 09:37:15  [ main:4941 ] - [ DEBUG ]  {conn-10005, pstmt-20009} executed. 44.263882 millis. SELECT COUNT(*)
+        FROM information_schema.TRIGGERS t
+        WHERE TRIGGER_NAME = ?
+          AND TRIGGER_SCHEMA = ?;
+2021-04-14 09:37:15  [ main:4942 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} open
+2021-04-14 09:37:15  [ main:4942 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} Header: [COUNT(*)]
+2021-04-14 09:37:15  [ main:4943 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} Result: [1]
+2021-04-14 09:37:15  [ main:4943 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} closed
+2021-04-14 09:37:15  [ main:4944 ] - [ DEBUG ]  {conn-10005, pstmt-20009} clearParameters. 
+2021-04-14 09:37:15  [ main:4944 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:37:16  [ main:5780 ] - [ INFO ]  Server listening on https://127.0.0.1:8086
+2021-04-14 09:37:28  [ http-nio-8086-exec-1:18194 ] - [ INFO ]  /upgrade Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"message":"success"}
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71134 ] - [ DEBUG ]  {conn-10001} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71138 ] - [ DEBUG ]  {conn-10002} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71140 ] - [ DEBUG ]  {conn-10003} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71142 ] - [ DEBUG ]  {conn-10004} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71144 ] - [ DEBUG ]  {conn-10005, pstmt-20000} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71145 ] - [ DEBUG ]  {conn-10005, pstmt-20001} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71146 ] - [ DEBUG ]  {conn-10005, pstmt-20002} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71146 ] - [ DEBUG ]  {conn-10005, pstmt-20003} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71146 ] - [ DEBUG ]  {conn-10005, pstmt-20004} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71147 ] - [ DEBUG ]  {conn-10005, pstmt-20005} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71147 ] - [ DEBUG ]  {conn-10005, pstmt-20006} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71147 ] - [ DEBUG ]  {conn-10005, pstmt-20007} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71147 ] - [ DEBUG ]  {conn-10005, pstmt-20008} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71148 ] - [ DEBUG ]  {conn-10005, pstmt-20009} closed
+2021-04-14 09:38:21  [ SpringContextShutdownHook:71149 ] - [ DEBUG ]  {conn-10005} closed
+2021-04-14 09:38:56  [ main:0 ] - [ DEBUG ]  {conn-10001,procId-3953347} connected
+2021-04-14 09:38:57  [ main:1418 ] - [ DEBUG ]  {conn-10002,procId-3953348} connected
+2021-04-14 09:38:58  [ main:1858 ] - [ DEBUG ]  {conn-10003,procId-3953349} connected
+2021-04-14 09:39:00  [ main:4399 ] - [ DEBUG ]  {conn-10004,procId-3953350} connected
+2021-04-14 09:39:03  [ main:7672 ] - [ DEBUG ]  {conn-10005,procId-3953351} connected
+2021-04-14 09:39:04  [ main:7889 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:39:04  [ main:8148 ] - [ DEBUG ]  {conn-10005, pstmt-20000} created. CREATE TABLE IF NOT EXISTS car
+        (
+            `id`        int unsigned                                                 NOT NULL AUTO_INCREMENT,
+            `color`     varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色',
+            `carnumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='车辆表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:04  [ main:8154 ] - [ DEBUG ]  {conn-10005, pstmt-20000} Parameters : []
+2021-04-14 09:39:04  [ main:8155 ] - [ DEBUG ]  {conn-10005, pstmt-20000} Types : []
+2021-04-14 09:39:04  [ main:8272 ] - [ DEBUG ]  {conn-10005, pstmt-20000} executed. 119.64798 millis. CREATE TABLE IF NOT EXISTS car
+        (
+            `id`        int unsigned                                                 NOT NULL AUTO_INCREMENT,
+            `color`     varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色',
+            `carnumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='车辆表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:04  [ main:8274 ] - [ DEBUG ]  {conn-10005, pstmt-20000} clearParameters. 
+2021-04-14 09:39:04  [ main:8278 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:39:04  [ main:8280 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:39:04  [ main:8285 ] - [ DEBUG ]  {conn-10005, pstmt-20001} created. CREATE TABLE IF NOT EXISTS child
+        (
+            `id`         int unsigned                                                  NOT NULL AUTO_INCREMENT,
+            `openid`     varchar(40)                                                   NOT NULL COMMENT '学生openid',
+            `name`       varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生姓名',
+            `sex`        tinyint unsigned                                              NOT NULL DEFAULT '0' COMMENT '学生性别',
+            `stuclass`   varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生班级',
+            `schooladdr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校地址',
+            `homeaddr`   varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生家庭住址',
+            `phone`      varchar(11)                                                   NOT NULL COMMENT '学生手机号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='孩子表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:04  [ main:8289 ] - [ DEBUG ]  {conn-10005, pstmt-20001} Parameters : []
+2021-04-14 09:39:04  [ main:8290 ] - [ DEBUG ]  {conn-10005, pstmt-20001} Types : []
+2021-04-14 09:39:04  [ main:8410 ] - [ DEBUG ]  {conn-10005, pstmt-20001} executed. 120.150607 millis. CREATE TABLE IF NOT EXISTS child
+        (
+            `id`         int unsigned                                                  NOT NULL AUTO_INCREMENT,
+            `openid`     varchar(40)                                                   NOT NULL COMMENT '学生openid',
+            `name`       varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生姓名',
+            `sex`        tinyint unsigned                                              NOT NULL DEFAULT '0' COMMENT '学生性别',
+            `stuclass`   varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生班级',
+            `schooladdr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校地址',
+            `homeaddr`   varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生家庭住址',
+            `phone`      varchar(11)                                                   NOT NULL COMMENT '学生手机号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='孩子表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:04  [ main:8412 ] - [ DEBUG ]  {conn-10005, pstmt-20001} clearParameters. 
+2021-04-14 09:39:04  [ main:8412 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:39:04  [ main:8414 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:39:04  [ main:8421 ] - [ DEBUG ]  {conn-10005, pstmt-20002} created. CREATE TABLE IF NOT EXISTS cooperate
+        (
+            `id`            int unsigned     NOT NULL AUTO_INCREMENT,
+            `datetime`      datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合作订单创建时间',
+            `driverid`      int unsigned     NOT NULL COMMENT '司机ID',
+            `state`         tinyint unsigned NOT NULL DEFAULT '0' COMMENT '司机接送状态',
+            `maxstu`        tinyint unsigned NOT NULL COMMENT '最多接学生数',
+            `locate`        varchar(255)     NOT NULL DEFAULT '' COMMENT '司机位置',
+            `locateTime`    datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '司机定位时间',
+            `carid`         int unsigned     NOT NULL DEFAULT '0' COMMENT '车辆ID',
+            `departureTime` datetime                  DEFAULT NULL COMMENT '出发时间',
+            `arriveTime`    datetime                  DEFAULT NULL COMMENT '到学校时间',
+            `leftTime`      datetime                  DEFAULT NULL COMMENT '离开学校时间',
+            `overTime`      datetime                  DEFAULT NULL COMMENT '订单完成时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作母表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:04  [ main:8423 ] - [ DEBUG ]  {conn-10005, pstmt-20002} Parameters : []
+2021-04-14 09:39:04  [ main:8423 ] - [ DEBUG ]  {conn-10005, pstmt-20002} Types : []
+2021-04-14 09:39:04  [ main:8571 ] - [ DEBUG ]  {conn-10005, pstmt-20002} executed. 147.83544 millis. CREATE TABLE IF NOT EXISTS cooperate
+        (
+            `id`            int unsigned     NOT NULL AUTO_INCREMENT,
+            `datetime`      datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合作订单创建时间',
+            `driverid`      int unsigned     NOT NULL COMMENT '司机ID',
+            `state`         tinyint unsigned NOT NULL DEFAULT '0' COMMENT '司机接送状态',
+            `maxstu`        tinyint unsigned NOT NULL COMMENT '最多接学生数',
+            `locate`        varchar(255)     NOT NULL DEFAULT '' COMMENT '司机位置',
+            `locateTime`    datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '司机定位时间',
+            `carid`         int unsigned     NOT NULL DEFAULT '0' COMMENT '车辆ID',
+            `departureTime` datetime                  DEFAULT NULL COMMENT '出发时间',
+            `arriveTime`    datetime                  DEFAULT NULL COMMENT '到学校时间',
+            `leftTime`      datetime                  DEFAULT NULL COMMENT '离开学校时间',
+            `overTime`      datetime                  DEFAULT NULL COMMENT '订单完成时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作母表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:04  [ main:8573 ] - [ DEBUG ]  {conn-10005, pstmt-20002} clearParameters. 
+2021-04-14 09:39:04  [ main:8573 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:39:04  [ main:8575 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:39:04  [ main:8579 ] - [ DEBUG ]  {conn-10005, pstmt-20003} created. CREATE TABLE IF NOT EXISTS cooperateParentChild
+        (
+            `id`              int unsigned     NOT NULL AUTO_INCREMENT,
+            `cooperateid`     int unsigned     NOT NULL COMMENT '合作订单ID',
+            `parentid`        int unsigned     NOT NULL COMMENT '家长ID',
+            `childid`         int unsigned     NOT NULL COMMENT '学生ID',
+            `childAddr`       varchar(255)     NOT NULL COMMENT '被接学生的地址',
+            `state`           tinyint unsigned NOT NULL DEFAULT '0' COMMENT '接车状态',
+            `dismistime`      datetime         NOT NULL COMMENT '放学时间',
+            `cooperatetime`   datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始合作时间',
+            `destinationAddr` varchar(255)     NOT NULL COMMENT '目的地址',
+            `oncartime`       datetime                  DEFAULT NULL COMMENT '上车时间',
+            `overtime`        datetime                  DEFAULT NULL COMMENT '到达或放弃合作时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作子表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:04  [ main:8581 ] - [ DEBUG ]  {conn-10005, pstmt-20003} Parameters : []
+2021-04-14 09:39:04  [ main:8581 ] - [ DEBUG ]  {conn-10005, pstmt-20003} Types : []
+2021-04-14 09:39:05  [ main:8711 ] - [ DEBUG ]  {conn-10005, pstmt-20003} executed. 130.57603 millis. CREATE TABLE IF NOT EXISTS cooperateParentChild
+        (
+            `id`              int unsigned     NOT NULL AUTO_INCREMENT,
+            `cooperateid`     int unsigned     NOT NULL COMMENT '合作订单ID',
+            `parentid`        int unsigned     NOT NULL COMMENT '家长ID',
+            `childid`         int unsigned     NOT NULL COMMENT '学生ID',
+            `childAddr`       varchar(255)     NOT NULL COMMENT '被接学生的地址',
+            `state`           tinyint unsigned NOT NULL DEFAULT '0' COMMENT '接车状态',
+            `dismistime`      datetime         NOT NULL COMMENT '放学时间',
+            `cooperatetime`   datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始合作时间',
+            `destinationAddr` varchar(255)     NOT NULL COMMENT '目的地址',
+            `oncartime`       datetime                  DEFAULT NULL COMMENT '上车时间',
+            `overtime`        datetime                  DEFAULT NULL COMMENT '到达或放弃合作时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作子表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:05  [ main:8713 ] - [ DEBUG ]  {conn-10005, pstmt-20003} clearParameters. 
+2021-04-14 09:39:05  [ main:8714 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:39:05  [ main:8715 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:39:05  [ main:8717 ] - [ DEBUG ]  {conn-10005, pstmt-20004} created. CREATE TABLE IF NOT EXISTS license
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int unsigned NOT NULL COMMENT '驾照持有者ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='驾驶证表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:05  [ main:8718 ] - [ DEBUG ]  {conn-10005, pstmt-20004} Parameters : []
+2021-04-14 09:39:05  [ main:8719 ] - [ DEBUG ]  {conn-10005, pstmt-20004} Types : []
+2021-04-14 09:39:05  [ main:8819 ] - [ DEBUG ]  {conn-10005, pstmt-20004} executed. 101.084507 millis. CREATE TABLE IF NOT EXISTS license
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int unsigned NOT NULL COMMENT '驾照持有者ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='驾驶证表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:05  [ main:8821 ] - [ DEBUG ]  {conn-10005, pstmt-20004} clearParameters. 
+2021-04-14 09:39:05  [ main:8821 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:39:05  [ main:8823 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:39:05  [ main:8828 ] - [ DEBUG ]  {conn-10005, pstmt-20005} created. CREATE TABLE IF NOT EXISTS parent
+        (
+            `id`        int(10) unsigned NOT NULL AUTO_INCREMENT,
+            `openid`    varchar(40)      NOT NULL COMMENT '家长openid',
+            `name`      varchar(32)      NOT NULL COMMENT '家长姓名',
+            `sex`       tinyint unsigned NOT NULL DEFAULT '0' COMMENT '家长性别',
+            `phone`     varchar(11)      NOT NULL COMMENT '家长手机号',
+            `idnumber`  varchar(18)      NOT NULL COMMENT '家长身份证号',
+            `licenseid` int unsigned     NOT NULL DEFAULT '0' COMMENT '家长驾照ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:05  [ main:8831 ] - [ DEBUG ]  {conn-10005, pstmt-20005} Parameters : []
+2021-04-14 09:39:05  [ main:8831 ] - [ DEBUG ]  {conn-10005, pstmt-20005} Types : []
+2021-04-14 09:39:05  [ main:8922 ] - [ DEBUG ]  {conn-10005, pstmt-20005} executed. 90.975061 millis. CREATE TABLE IF NOT EXISTS parent
+        (
+            `id`        int(10) unsigned NOT NULL AUTO_INCREMENT,
+            `openid`    varchar(40)      NOT NULL COMMENT '家长openid',
+            `name`      varchar(32)      NOT NULL COMMENT '家长姓名',
+            `sex`       tinyint unsigned NOT NULL DEFAULT '0' COMMENT '家长性别',
+            `phone`     varchar(11)      NOT NULL COMMENT '家长手机号',
+            `idnumber`  varchar(18)      NOT NULL COMMENT '家长身份证号',
+            `licenseid` int unsigned     NOT NULL DEFAULT '0' COMMENT '家长驾照ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:05  [ main:8923 ] - [ DEBUG ]  {conn-10005, pstmt-20005} clearParameters. 
+2021-04-14 09:39:05  [ main:8924 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:39:05  [ main:8925 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:39:05  [ main:8927 ] - [ DEBUG ]  {conn-10005, pstmt-20006} created. CREATE TABLE IF NOT EXISTS parentChild
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `parentid` int unsigned NOT NULL COMMENT '家长ID',
+            `childid`  int unsigned NOT NULL COMMENT '学生ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长孩子关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:05  [ main:8928 ] - [ DEBUG ]  {conn-10005, pstmt-20006} Parameters : []
+2021-04-14 09:39:05  [ main:8929 ] - [ DEBUG ]  {conn-10005, pstmt-20006} Types : []
+2021-04-14 09:39:05  [ main:9010 ] - [ DEBUG ]  {conn-10005, pstmt-20006} executed. 81.439134 millis. CREATE TABLE IF NOT EXISTS parentChild
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `parentid` int unsigned NOT NULL COMMENT '家长ID',
+            `childid`  int unsigned NOT NULL COMMENT '学生ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长孩子关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:05  [ main:9032 ] - [ DEBUG ]  {conn-10005, pstmt-20006} clearParameters. 
+2021-04-14 09:39:05  [ main:9032 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:39:05  [ main:9034 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:39:05  [ main:9035 ] - [ DEBUG ]  {conn-10005, pstmt-20007} created. CREATE TABLE IF NOT EXISTS driverCar
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int DEFAULT NULL COMMENT '司机ID',
+            `carid`    int DEFAULT NULL COMMENT '车辆ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='司机车辆关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:05  [ main:9036 ] - [ DEBUG ]  {conn-10005, pstmt-20007} Parameters : []
+2021-04-14 09:39:05  [ main:9036 ] - [ DEBUG ]  {conn-10005, pstmt-20007} Types : []
+2021-04-14 09:39:05  [ main:9103 ] - [ DEBUG ]  {conn-10005, pstmt-20007} executed. 67.343514 millis. CREATE TABLE IF NOT EXISTS driverCar
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int DEFAULT NULL COMMENT '司机ID',
+            `carid`    int DEFAULT NULL COMMENT '车辆ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='司机车辆关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 09:39:05  [ main:9104 ] - [ DEBUG ]  {conn-10005, pstmt-20007} clearParameters. 
+2021-04-14 09:39:05  [ main:9105 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:39:05  [ main:9113 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:39:05  [ main:9198 ] - [ DEBUG ]  {conn-10005, pstmt-20008} created. SELECT COUNT(*)
+        FROM information_schema.TABLES t,
+             information_schema.SCHEMATA n
+        WHERE t.table_name = ?
+          AND n.SCHEMA_NAME = ?;
+2021-04-14 09:39:05  [ main:9200 ] - [ DEBUG ]  {conn-10005, pstmt-20008} Parameters : [cooperateView, carpool]
+2021-04-14 09:39:05  [ main:9200 ] - [ DEBUG ]  {conn-10005, pstmt-20008} Types : [VARCHAR, VARCHAR]
+2021-04-14 09:39:05  [ main:9279 ] - [ DEBUG ]  {conn-10005, pstmt-20008} executed. 79.211677 millis. SELECT COUNT(*)
+        FROM information_schema.TABLES t,
+             information_schema.SCHEMATA n
+        WHERE t.table_name = ?
+          AND n.SCHEMA_NAME = ?;
+2021-04-14 09:39:05  [ main:9282 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} open
+2021-04-14 09:39:05  [ main:9287 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} Header: [COUNT(*)]
+2021-04-14 09:39:05  [ main:9294 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} Result: [1]
+2021-04-14 09:39:05  [ main:9297 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} closed
+2021-04-14 09:39:05  [ main:9299 ] - [ DEBUG ]  {conn-10005, pstmt-20008} clearParameters. 
+2021-04-14 09:39:05  [ main:9300 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:39:05  [ main:9301 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 09:39:05  [ main:9305 ] - [ DEBUG ]  {conn-10005, pstmt-20009} created. SELECT COUNT(*)
+        FROM information_schema.TRIGGERS t
+        WHERE TRIGGER_NAME = ?
+          AND TRIGGER_SCHEMA = ?;
+2021-04-14 09:39:05  [ main:9308 ] - [ DEBUG ]  {conn-10005, pstmt-20009} Parameters : [updateTime, carpool]
+2021-04-14 09:39:05  [ main:9309 ] - [ DEBUG ]  {conn-10005, pstmt-20009} Types : [VARCHAR, VARCHAR]
+2021-04-14 09:39:05  [ main:9352 ] - [ DEBUG ]  {conn-10005, pstmt-20009} executed. 43.645769 millis. SELECT COUNT(*)
+        FROM information_schema.TRIGGERS t
+        WHERE TRIGGER_NAME = ?
+          AND TRIGGER_SCHEMA = ?;
+2021-04-14 09:39:05  [ main:9353 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} open
+2021-04-14 09:39:05  [ main:9353 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} Header: [COUNT(*)]
+2021-04-14 09:39:05  [ main:9353 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} Result: [1]
+2021-04-14 09:39:05  [ main:9354 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} closed
+2021-04-14 09:39:05  [ main:9354 ] - [ DEBUG ]  {conn-10005, pstmt-20009} clearParameters. 
+2021-04-14 09:39:05  [ main:9355 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 09:39:06  [ main:10157 ] - [ INFO ]  Server listening on https://127.0.0.1:8086
+2021-04-14 09:39:11  [ http-nio-8086-exec-1:15477 ] - [ INFO ]  /upgrade Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"message":"success"}
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27222 ] - [ DEBUG ]  {conn-10001} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27224 ] - [ DEBUG ]  {conn-10002} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27229 ] - [ DEBUG ]  {conn-10003} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27232 ] - [ DEBUG ]  {conn-10004} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27234 ] - [ DEBUG ]  {conn-10005, pstmt-20000} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27235 ] - [ DEBUG ]  {conn-10005, pstmt-20001} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27235 ] - [ DEBUG ]  {conn-10005, pstmt-20002} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27236 ] - [ DEBUG ]  {conn-10005, pstmt-20003} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27236 ] - [ DEBUG ]  {conn-10005, pstmt-20004} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27236 ] - [ DEBUG ]  {conn-10005, pstmt-20005} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27237 ] - [ DEBUG ]  {conn-10005, pstmt-20006} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27237 ] - [ DEBUG ]  {conn-10005, pstmt-20007} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27237 ] - [ DEBUG ]  {conn-10005, pstmt-20008} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27237 ] - [ DEBUG ]  {conn-10005, pstmt-20009} closed
+2021-04-14 09:39:23  [ SpringContextShutdownHook:27239 ] - [ DEBUG ]  {conn-10005} closed
+2021-04-14 10:48:26  [ main:0 ] - [ DEBUG ]  {conn-10001,procId-3953740} connected
+2021-04-14 10:48:27  [ main:1557 ] - [ DEBUG ]  {conn-10002,procId-3953741} connected
+2021-04-14 10:48:29  [ main:3075 ] - [ DEBUG ]  {conn-10003,procId-3953742} connected
+2021-04-14 10:48:30  [ main:4438 ] - [ DEBUG ]  {conn-10004,procId-3953743} connected
+2021-04-14 10:48:31  [ main:5687 ] - [ DEBUG ]  {conn-10005,procId-3953744} connected
+2021-04-14 10:48:32  [ main:6117 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 10:48:32  [ main:6334 ] - [ DEBUG ]  {conn-10005, pstmt-20000} created. CREATE TABLE IF NOT EXISTS car
+        (
+            `id`        int unsigned                                                 NOT NULL AUTO_INCREMENT,
+            `color`     varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色',
+            `carnumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='车辆表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:32  [ main:6343 ] - [ DEBUG ]  {conn-10005, pstmt-20000} Parameters : []
+2021-04-14 10:48:32  [ main:6343 ] - [ DEBUG ]  {conn-10005, pstmt-20000} Types : []
+2021-04-14 10:48:32  [ main:6647 ] - [ DEBUG ]  {conn-10005, pstmt-20000} executed. 304.978869 millis. CREATE TABLE IF NOT EXISTS car
+        (
+            `id`        int unsigned                                                 NOT NULL AUTO_INCREMENT,
+            `color`     varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车辆颜色',
+            `carnumber` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '车牌号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='车辆表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:32  [ main:6649 ] - [ DEBUG ]  {conn-10005, pstmt-20000} clearParameters. 
+2021-04-14 10:48:32  [ main:6652 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 10:48:32  [ main:6653 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 10:48:32  [ main:6658 ] - [ DEBUG ]  {conn-10005, pstmt-20001} created. CREATE TABLE IF NOT EXISTS child
+        (
+            `id`         int unsigned                                                  NOT NULL AUTO_INCREMENT,
+            `openid`     varchar(40)                                                   NOT NULL COMMENT '学生openid',
+            `name`       varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生姓名',
+            `sex`        tinyint unsigned                                              NOT NULL DEFAULT '0' COMMENT '学生性别',
+            `stuclass`   varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生班级',
+            `schooladdr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校地址',
+            `homeaddr`   varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生家庭住址',
+            `phone`      varchar(11)                                                   NOT NULL COMMENT '学生手机号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='孩子表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:32  [ main:6660 ] - [ DEBUG ]  {conn-10005, pstmt-20001} Parameters : []
+2021-04-14 10:48:32  [ main:6661 ] - [ DEBUG ]  {conn-10005, pstmt-20001} Types : []
+2021-04-14 10:48:32  [ main:6825 ] - [ DEBUG ]  {conn-10005, pstmt-20001} executed. 164.339914 millis. CREATE TABLE IF NOT EXISTS child
+        (
+            `id`         int unsigned                                                  NOT NULL AUTO_INCREMENT,
+            `openid`     varchar(40)                                                   NOT NULL COMMENT '学生openid',
+            `name`       varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生姓名',
+            `sex`        tinyint unsigned                                              NOT NULL DEFAULT '0' COMMENT '学生性别',
+            `stuclass`   varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci  NOT NULL COMMENT '学生班级',
+            `schooladdr` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学校地址',
+            `homeaddr`   varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '学生家庭住址',
+            `phone`      varchar(11)                                                   NOT NULL COMMENT '学生手机号',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='孩子表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:32  [ main:6827 ] - [ DEBUG ]  {conn-10005, pstmt-20001} clearParameters. 
+2021-04-14 10:48:32  [ main:6827 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 10:48:32  [ main:6829 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 10:48:32  [ main:6835 ] - [ DEBUG ]  {conn-10005, pstmt-20002} created. CREATE TABLE IF NOT EXISTS cooperate
+        (
+            `id`            int unsigned     NOT NULL AUTO_INCREMENT,
+            `datetime`      datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合作订单创建时间',
+            `driverid`      int unsigned     NOT NULL COMMENT '司机ID',
+            `state`         tinyint unsigned NOT NULL DEFAULT '0' COMMENT '司机接送状态',
+            `maxstu`        tinyint unsigned NOT NULL COMMENT '最多接学生数',
+            `locate`        varchar(255)     NOT NULL DEFAULT '' COMMENT '司机位置',
+            `locateTime`    datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '司机定位时间',
+            `carid`         int unsigned     NOT NULL DEFAULT '0' COMMENT '车辆ID',
+            `departureTime` datetime                  DEFAULT NULL COMMENT '出发时间',
+            `arriveTime`    datetime                  DEFAULT NULL COMMENT '到学校时间',
+            `leftTime`      datetime                  DEFAULT NULL COMMENT '离开学校时间',
+            `overTime`      datetime                  DEFAULT NULL COMMENT '订单完成时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作母表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:32  [ main:6836 ] - [ DEBUG ]  {conn-10005, pstmt-20002} Parameters : []
+2021-04-14 10:48:32  [ main:6837 ] - [ DEBUG ]  {conn-10005, pstmt-20002} Types : []
+2021-04-14 10:48:33  [ main:7045 ] - [ DEBUG ]  {conn-10005, pstmt-20002} executed. 208.884761 millis. CREATE TABLE IF NOT EXISTS cooperate
+        (
+            `id`            int unsigned     NOT NULL AUTO_INCREMENT,
+            `datetime`      datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合作订单创建时间',
+            `driverid`      int unsigned     NOT NULL COMMENT '司机ID',
+            `state`         tinyint unsigned NOT NULL DEFAULT '0' COMMENT '司机接送状态',
+            `maxstu`        tinyint unsigned NOT NULL COMMENT '最多接学生数',
+            `locate`        varchar(255)     NOT NULL DEFAULT '' COMMENT '司机位置',
+            `locateTime`    datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '司机定位时间',
+            `carid`         int unsigned     NOT NULL DEFAULT '0' COMMENT '车辆ID',
+            `departureTime` datetime                  DEFAULT NULL COMMENT '出发时间',
+            `arriveTime`    datetime                  DEFAULT NULL COMMENT '到学校时间',
+            `leftTime`      datetime                  DEFAULT NULL COMMENT '离开学校时间',
+            `overTime`      datetime                  DEFAULT NULL COMMENT '订单完成时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作母表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:33  [ main:7047 ] - [ DEBUG ]  {conn-10005, pstmt-20002} clearParameters. 
+2021-04-14 10:48:33  [ main:7048 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 10:48:33  [ main:7049 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 10:48:33  [ main:7054 ] - [ DEBUG ]  {conn-10005, pstmt-20003} created. CREATE TABLE IF NOT EXISTS cooperateParentChild
+        (
+            `id`              int unsigned     NOT NULL AUTO_INCREMENT,
+            `cooperateid`     int unsigned     NOT NULL COMMENT '合作订单ID',
+            `parentid`        int unsigned     NOT NULL COMMENT '家长ID',
+            `childid`         int unsigned     NOT NULL COMMENT '学生ID',
+            `childAddr`       varchar(255)     NOT NULL COMMENT '被接学生的地址',
+            `state`           tinyint unsigned NOT NULL DEFAULT '0' COMMENT '接车状态',
+            `dismistime`      datetime         NOT NULL COMMENT '放学时间',
+            `cooperatetime`   datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始合作时间',
+            `destinationAddr` varchar(255)     NOT NULL COMMENT '目的地址',
+            `oncartime`       datetime                  DEFAULT NULL COMMENT '上车时间',
+            `overtime`        datetime                  DEFAULT NULL COMMENT '到达或放弃合作时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作子表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:33  [ main:7056 ] - [ DEBUG ]  {conn-10005, pstmt-20003} Parameters : []
+2021-04-14 10:48:33  [ main:7057 ] - [ DEBUG ]  {conn-10005, pstmt-20003} Types : []
+2021-04-14 10:48:33  [ main:7251 ] - [ DEBUG ]  {conn-10005, pstmt-20003} executed. 195.219389 millis. CREATE TABLE IF NOT EXISTS cooperateParentChild
+        (
+            `id`              int unsigned     NOT NULL AUTO_INCREMENT,
+            `cooperateid`     int unsigned     NOT NULL COMMENT '合作订单ID',
+            `parentid`        int unsigned     NOT NULL COMMENT '家长ID',
+            `childid`         int unsigned     NOT NULL COMMENT '学生ID',
+            `childAddr`       varchar(255)     NOT NULL COMMENT '被接学生的地址',
+            `state`           tinyint unsigned NOT NULL DEFAULT '0' COMMENT '接车状态',
+            `dismistime`      datetime         NOT NULL COMMENT '放学时间',
+            `cooperatetime`   datetime         NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始合作时间',
+            `destinationAddr` varchar(255)     NOT NULL COMMENT '目的地址',
+            `oncartime`       datetime                  DEFAULT NULL COMMENT '上车时间',
+            `overtime`        datetime                  DEFAULT NULL COMMENT '到达或放弃合作时间',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='合作子表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:33  [ main:7253 ] - [ DEBUG ]  {conn-10005, pstmt-20003} clearParameters. 
+2021-04-14 10:48:33  [ main:7254 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 10:48:33  [ main:7255 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 10:48:33  [ main:7258 ] - [ DEBUG ]  {conn-10005, pstmt-20004} created. CREATE TABLE IF NOT EXISTS license
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int unsigned NOT NULL COMMENT '驾照持有者ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='驾驶证表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:33  [ main:7259 ] - [ DEBUG ]  {conn-10005, pstmt-20004} Parameters : []
+2021-04-14 10:48:33  [ main:7259 ] - [ DEBUG ]  {conn-10005, pstmt-20004} Types : []
+2021-04-14 10:48:33  [ main:7410 ] - [ DEBUG ]  {conn-10005, pstmt-20004} executed. 151.819932 millis. CREATE TABLE IF NOT EXISTS license
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int unsigned NOT NULL COMMENT '驾照持有者ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='驾驶证表' ENGINE = InnoDB
+                          DEFAULT CHARSET = utf8mb4
+                          COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:33  [ main:7412 ] - [ DEBUG ]  {conn-10005, pstmt-20004} clearParameters. 
+2021-04-14 10:48:33  [ main:7413 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 10:48:33  [ main:7414 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 10:48:33  [ main:7417 ] - [ DEBUG ]  {conn-10005, pstmt-20005} created. CREATE TABLE IF NOT EXISTS parent
+        (
+            `id`        int(10) unsigned NOT NULL AUTO_INCREMENT,
+            `openid`    varchar(40)      NOT NULL COMMENT '家长openid',
+            `name`      varchar(32)      NOT NULL COMMENT '家长姓名',
+            `sex`       tinyint unsigned NOT NULL DEFAULT '0' COMMENT '家长性别',
+            `phone`     varchar(11)      NOT NULL COMMENT '家长手机号',
+            `idnumber`  varchar(18)      NOT NULL COMMENT '家长身份证号',
+            `licenseid` int unsigned     NOT NULL DEFAULT '0' COMMENT '家长驾照ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:33  [ main:7418 ] - [ DEBUG ]  {conn-10005, pstmt-20005} Parameters : []
+2021-04-14 10:48:33  [ main:7419 ] - [ DEBUG ]  {conn-10005, pstmt-20005} Types : []
+2021-04-14 10:48:33  [ main:7696 ] - [ DEBUG ]  {conn-10005, pstmt-20005} executed. 278.036883 millis. CREATE TABLE IF NOT EXISTS parent
+        (
+            `id`        int(10) unsigned NOT NULL AUTO_INCREMENT,
+            `openid`    varchar(40)      NOT NULL COMMENT '家长openid',
+            `name`      varchar(32)      NOT NULL COMMENT '家长姓名',
+            `sex`       tinyint unsigned NOT NULL DEFAULT '0' COMMENT '家长性别',
+            `phone`     varchar(11)      NOT NULL COMMENT '家长手机号',
+            `idnumber`  varchar(18)      NOT NULL COMMENT '家长身份证号',
+            `licenseid` int unsigned     NOT NULL DEFAULT '0' COMMENT '家长驾照ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长表' ENGINE = InnoDB
+                         DEFAULT CHARSET = utf8mb4
+                         COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:33  [ main:7697 ] - [ DEBUG ]  {conn-10005, pstmt-20005} clearParameters. 
+2021-04-14 10:48:33  [ main:7698 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 10:48:33  [ main:7699 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 10:48:33  [ main:7702 ] - [ DEBUG ]  {conn-10005, pstmt-20006} created. CREATE TABLE IF NOT EXISTS parentChild
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `parentid` int unsigned NOT NULL COMMENT '家长ID',
+            `childid`  int unsigned NOT NULL COMMENT '学生ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长孩子关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:33  [ main:7703 ] - [ DEBUG ]  {conn-10005, pstmt-20006} Parameters : []
+2021-04-14 10:48:33  [ main:7703 ] - [ DEBUG ]  {conn-10005, pstmt-20006} Types : []
+2021-04-14 10:48:33  [ main:7848 ] - [ DEBUG ]  {conn-10005, pstmt-20006} executed. 144.625424 millis. CREATE TABLE IF NOT EXISTS parentChild
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `parentid` int unsigned NOT NULL COMMENT '家长ID',
+            `childid`  int unsigned NOT NULL COMMENT '学生ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='家长孩子关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:33  [ main:7848 ] - [ DEBUG ]  {conn-10005, pstmt-20006} clearParameters. 
+2021-04-14 10:48:33  [ main:7849 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 10:48:33  [ main:7849 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 10:48:33  [ main:7851 ] - [ DEBUG ]  {conn-10005, pstmt-20007} created. CREATE TABLE IF NOT EXISTS driverCar
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int DEFAULT NULL COMMENT '司机ID',
+            `carid`    int DEFAULT NULL COMMENT '车辆ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='司机车辆关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:33  [ main:7852 ] - [ DEBUG ]  {conn-10005, pstmt-20007} Parameters : []
+2021-04-14 10:48:33  [ main:7852 ] - [ DEBUG ]  {conn-10005, pstmt-20007} Types : []
+2021-04-14 10:48:34  [ main:8064 ] - [ DEBUG ]  {conn-10005, pstmt-20007} executed. 212.693908 millis. CREATE TABLE IF NOT EXISTS driverCar
+        (
+            `id`       int unsigned NOT NULL AUTO_INCREMENT,
+            `driverid` int DEFAULT NULL COMMENT '司机ID',
+            `carid`    int DEFAULT NULL COMMENT '车辆ID',
+            PRIMARY KEY (`id`)
+        ) COMMENT ='司机车辆关系表' ENGINE = InnoDB
+                             DEFAULT CHARSET = utf8mb4
+                             COLLATE = utf8mb4_0900_ai_ci;
+2021-04-14 10:48:34  [ main:8065 ] - [ DEBUG ]  {conn-10005, pstmt-20007} clearParameters. 
+2021-04-14 10:48:34  [ main:8066 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 10:48:34  [ main:8070 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 10:48:34  [ main:8138 ] - [ DEBUG ]  {conn-10005, pstmt-20008} created. SELECT COUNT(*)
+        FROM information_schema.TABLES t,
+             information_schema.SCHEMATA n
+        WHERE t.table_name = ?
+          AND n.SCHEMA_NAME = ?;
+2021-04-14 10:48:34  [ main:8140 ] - [ DEBUG ]  {conn-10005, pstmt-20008} Parameters : [cooperateView, carpool]
+2021-04-14 10:48:34  [ main:8140 ] - [ DEBUG ]  {conn-10005, pstmt-20008} Types : [VARCHAR, VARCHAR]
+2021-04-14 10:48:34  [ main:8255 ] - [ DEBUG ]  {conn-10005, pstmt-20008} executed. 115.558571 millis. SELECT COUNT(*)
+        FROM information_schema.TABLES t,
+             information_schema.SCHEMATA n
+        WHERE t.table_name = ?
+          AND n.SCHEMA_NAME = ?;
+2021-04-14 10:48:34  [ main:8259 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} open
+2021-04-14 10:48:34  [ main:8264 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} Header: [COUNT(*)]
+2021-04-14 10:48:34  [ main:8272 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} Result: [1]
+2021-04-14 10:48:34  [ main:8274 ] - [ DEBUG ]  {conn-10005, pstmt-20008, rs-50000} closed
+2021-04-14 10:48:34  [ main:8276 ] - [ DEBUG ]  {conn-10005, pstmt-20008} clearParameters. 
+2021-04-14 10:48:34  [ main:8276 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 10:48:34  [ main:8277 ] - [ DEBUG ]  {conn-10005} pool-connect
+2021-04-14 10:48:34  [ main:8278 ] - [ DEBUG ]  {conn-10005, pstmt-20009} created. SELECT COUNT(*)
+        FROM information_schema.TRIGGERS t
+        WHERE TRIGGER_NAME = ?
+          AND TRIGGER_SCHEMA = ?;
+2021-04-14 10:48:34  [ main:8279 ] - [ DEBUG ]  {conn-10005, pstmt-20009} Parameters : [updateTime, carpool]
+2021-04-14 10:48:34  [ main:8279 ] - [ DEBUG ]  {conn-10005, pstmt-20009} Types : [VARCHAR, VARCHAR]
+2021-04-14 10:48:34  [ main:8387 ] - [ DEBUG ]  {conn-10005, pstmt-20009} executed. 108.08285 millis. SELECT COUNT(*)
+        FROM information_schema.TRIGGERS t
+        WHERE TRIGGER_NAME = ?
+          AND TRIGGER_SCHEMA = ?;
+2021-04-14 10:48:34  [ main:8388 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} open
+2021-04-14 10:48:34  [ main:8389 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} Header: [COUNT(*)]
+2021-04-14 10:48:34  [ main:8390 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} Result: [1]
+2021-04-14 10:48:34  [ main:8390 ] - [ DEBUG ]  {conn-10005, pstmt-20009, rs-50001} closed
+2021-04-14 10:48:34  [ main:8391 ] - [ DEBUG ]  {conn-10005, pstmt-20009} clearParameters. 
+2021-04-14 10:48:34  [ main:8391 ] - [ DEBUG ]  {conn-10005} pool-recycle
+2021-04-14 10:48:35  [ main:9114 ] - [ INFO ]  Server listening on https://127.0.0.1:8086
+2021-04-14 10:48:42  [ http-nio-8086-exec-1:16723 ] - [ INFO ]  /upgrade Request:{"openid":obk6s5b0ZxLbscGXDCiRt1sRX1HM},Response:{"code":0,"message":"success"}
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90488 ] - [ DEBUG ]  {conn-10001} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90489 ] - [ DEBUG ]  {conn-10002} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90491 ] - [ DEBUG ]  {conn-10003} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90492 ] - [ DEBUG ]  {conn-10004} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90492 ] - [ DEBUG ]  {conn-10005, pstmt-20000} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90492 ] - [ DEBUG ]  {conn-10005, pstmt-20001} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90493 ] - [ DEBUG ]  {conn-10005, pstmt-20002} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90493 ] - [ DEBUG ]  {conn-10005, pstmt-20003} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90493 ] - [ DEBUG ]  {conn-10005, pstmt-20004} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90493 ] - [ DEBUG ]  {conn-10005, pstmt-20005} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90493 ] - [ DEBUG ]  {conn-10005, pstmt-20006} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90493 ] - [ DEBUG ]  {conn-10005, pstmt-20007} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90493 ] - [ DEBUG ]  {conn-10005, pstmt-20008} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90494 ] - [ DEBUG ]  {conn-10005, pstmt-20009} closed
+2021-04-14 10:49:56  [ SpringContextShutdownHook:90495 ] - [ DEBUG ]  {conn-10005} closed

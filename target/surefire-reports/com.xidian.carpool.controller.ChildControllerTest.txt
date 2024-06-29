@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.xidian.carpool.controller.ChildControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in com.xidian.carpool.controller.ChildControllerTest
+register  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.xidian.carpool.controller.ChildControllerTest.register(ChildControllerTest.java:15)
+

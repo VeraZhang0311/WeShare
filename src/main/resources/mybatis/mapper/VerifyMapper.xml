@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.carpool.mapper.VerifyMapper">
+    <update id="confirmVerify">
+        UPDATE `verify`
+        SET `accept` = #{status}
+        WHERE `id` = #{id};
+    </update>
+
+    <select id="queryVerify" resultType="com.xidian.carpool.entity.Verify">
+        SELECT `verify`.`*`,
+               (
+                   SELECT parent.`name`
+                   FROM parent
+                   WHERE parent.openid = verify.openid)                                      AS parentName,
+               (
+                   SELECT parent.`sex`
+                   FROM parent
+                   WHERE parent.openid = verify.openid)                                      AS parentSex,
+               (
+                   SELECT parent.`phone`
+                   FROM parent
+                   WHERE parent.openid = verify.openid)                                      AS parentPhone,
+               (
+                   SELECT parent.`idnumber` FROM parent WHERE parent.openid = verify.openid) AS parentIdNumber
+        FROM verify
+    </select>
+
+    <select id="getVerifyByID" resultType="com.xidian.carpool.entity.Verify">
+        SELECT *
+        FROM `verify`
+        WHERE `id` = #{id};
+    </select>
+    <select id="getUnconfirmedVerifyByOpenid" resultType="com.xidian.carpool.entity.Verify">
+        SELECT *
+        FROM `verify`
+        WHERE `openid` = #{openid}
+          AND `accept` = 0;
+    </select>
+    <select id="getCarVerifyIndex" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM `verify`
+        WHERE `type` = 1;
+    </select>
+    <select id="getUnconfirmedAddCarByCarNumber" resultType="com.xidian.carpool.entity.Verify">
+        SELECT *
+        FROM `verify`
+        WHERE `openid` = #{openid}
+          AND `accept` = 0
+          AND `carNumber` = #{carNumber};
+    </select>
+
+    <insert id="addVerify" parameterType="com.xidian.carpool.entity.Verify">
+        INSERT INTO `verify`(`openid`, `carNumber`, `carColor`, `type`, `index`)
+        VALUES (#{openid}, #{carNumber}, #{carColor}, #{type}, #{index});
+    </insert>
+</mapper>

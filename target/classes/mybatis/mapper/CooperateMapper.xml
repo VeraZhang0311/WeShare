@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.carpool.mapper.CooperateMapper">
+
+    <select id="fillByID" resultType="com.xidian.carpool.entity.Cooperate">
+        SELECT id,
+               DATE_FORMAT(datetime, '%Y-%m-%d %H:%i:%s')       AS date,
+               driverid,
+               state,
+               maxstu,
+               locate,
+               departure,
+               destination,
+               DATE_FORMAT(locateTime, '%Y-%m-%d %H:%i:%s')     AS locateTime,
+               carid,
+               DATE_FORMAT(departureTime, '%Y-%m-%d %H:%i:%s')  AS departureTime,
+               DATE_FORMAT(arriveTime, '%Y-%m-%d %H:%i:%s')     AS arriveTime,
+               DATE_FORMAT(leftTime, '%Y-%m-%d %H:%i:%s')       AS leftTime,
+               DATE_FORMAT(overTime, '%Y-%m-%d %H:%i:%s')       AS overTime,
+               DATE_FORMAT(planArriveTime, '%Y-%m-%d %H:%i:%s') AS planArriveTime
+        FROM cooperate
+        WHERE id = #{id};
+    </select>
+    <insert id="addCooperate" keyProperty="id">
+        INSERT INTO `cooperate`(`driverid`, `maxstu`, `locate`, `carid`, `departure`, `destination`,
+                                          planArriveTime)
+        VALUES (#{driverid}, #{maxstu}, #{locate}, #{carid}, #{departure}, #{destination}, #{planArriveTime})
+    </insert>
+    <select id="atDB" resultType="int">
+        select COUNT(*)
+        from cooperate
+        WHERE id = #{id};
+    </select>
+    <update id="updateCooperate">
+        UPDATE `cooperate`
+        SET `state`     = #{state},
+            `locate`    = #{locate},
+            `locateTime`= CURRENT_TIMESTAMP
+        WHERE `id` = #{id};
+    </update>
+    <select id="getNearCooperates" resultType="com.xidian.carpool.entity.CooperateView">
+        SELECT *
+        FROM cooperateView
+        WHERE datetime > DATE_ADD(CURRENT_TIME, INTERVAL -7 DAY)
+           OR state != 4;
+    </select>
+    <select id="getCooperatesByDriverID" resultType="com.xidian.carpool.entity.CooperateView">
+        SELECT *
+        FROM cooperateView
+        WHERE driverid = #{driverID}
+        order by ID desc;
+    </select>
+    <select id="getCooperatesByID" resultType="com.xidian.carpool.entity.CooperateView">
+        SELECT *
+        FROM cooperateView
+        WHERE id = #{id};
+    </select>
+    <select id="getCooperatesByIDList" resultType="com.xidian.carpool.entity.CooperateView" parameterType="list">
+        SELECT *
+        FROM cooperateView
+        WHERE id in
+        <foreach collection="idList" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.carpool.mapper.ChildMapper">
+
+    <insert id="addChild" parameterType="com.xidian.carpool.entity.Child" keyProperty="id">
+        INSERT INTO `child`(`openid`, `name`, `sex`, `phone`, `stuclass`, `schooladdr`, `homeaddr`,
+                                      `avatarUrl`)
+        VALUES (#{openid}, #{name}, #{sex}, #{phone}, #{stuclass}, #{schooladdr}, #{homeaddr}, #{avatarUrl});
+    </insert>
+
+    <select id="atDBOpenid" resultType="int">
+        select COUNT(*)
+        from child
+        WHERE openid = #{openid};
+    </select>
+    <select id="atDBid" resultType="int">
+        select COUNT(*)
+        from child
+        WHERE id = #{id};
+    </select>
+    <select id="fillByOpenid" resultType="com.xidian.carpool.entity.Child">
+        select *
+        from child
+        WHERE openid = #{openid};
+    </select>
+
+    <select id="fillById" resultType="com.xidian.carpool.entity.Child">
+        select *
+        from child
+        WHERE id = #{id};
+    </select>
+    <select id="undoneCooperation" resultType="com.xidian.carpool.entity.CooperateParentChild">
+        SELECT id,
+        cooperateid,
+        parentid,
+        childid,
+        childAddr,
+        state,
+        DATE_FORMAT(dismistime, '%Y-%m-%d %H:%i:%s') AS
+        dismistime,
+        DATE_FORMAT(cooperatetime, '%Y-%m-%d %H:%i:%s') AS
+        cooperatetime,
+        destinationAddr,
+        DATE_FORMAT(oncartime, '%Y-%m-%d %H:%i:%s') AS oncartime,
+        DATE_FORMAT(overtime,
+        '%Y-%m-%d %H:%i:%s') AS overtime
+        FROM `cooperateParentChild`
+        WHERE childid = #{id}
+        AND state &lt; 2;
+        <!--&lt;即< xml中<是非法字符，需由转义字符替换-->
+    </select>
+
+    <select id="userType" resultType="int">
+        SELECT (SELECT COUNT(*) FROM parent WHERE `parent`.`openid`=#{openid})-(SELECT COUNT(*) FROM child WHERE
+        `child`.`openid`=#{openid}) AS userType;
+        <!--
+        -1：孩子
+        0：未注册
+        1：家长
+        -->
+    </select>
+    <select id="getChildList" resultType="com.xidian.carpool.entity.Child">
+        SELECT * FROM carpool.child WHERE id in
+        <foreach collection="idList" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <update id="updateAvatarUrl">
+        UPDATE `child`
+        SET `avatarUrl` = #{avatarUrl}
+        WHERE `openid` = #{openid}
+    </update>
+</mapper>

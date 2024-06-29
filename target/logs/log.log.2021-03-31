@@ -1,0 +1,120 @@
+2021-03-31 20:58:49  [ main:0 ] - [ DEBUG ]  Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2021-03-31 20:58:49  [ main:6 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VFS
+2021-03-31 20:58:49  [ main:6 ] - [ DEBUG ]  JBoss 6 VFS API is not available in this environment.
+2021-03-31 20:58:49  [ main:7 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VirtualFile
+2021-03-31 20:58:49  [ main:32 ] - [ DEBUG ]  VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+2021-03-31 20:58:49  [ main:32 ] - [ DEBUG ]  Using VFS adapter org.apache.ibatis.io.DefaultVFS
+2021-03-31 20:58:49  [ main:33 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 20:58:49  [ main:34 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 20:58:49  [ main:34 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 20:58:49  [ main:34 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 20:58:49  [ main:35 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 20:58:49  [ main:84 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 20:58:49  [ main:85 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 20:58:49  [ main:85 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 20:58:49  [ main:85 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 20:58:49  [ main:87 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 20:58:49  [ main:88 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 20:58:49  [ main:89 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 20:58:49  [ main:89 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 20:58:49  [ main:90 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 21:04:38  [ main:1 ] - [ DEBUG ]  Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2021-03-31 21:04:38  [ main:28 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VFS
+2021-03-31 21:04:38  [ main:29 ] - [ DEBUG ]  JBoss 6 VFS API is not available in this environment.
+2021-03-31 21:04:38  [ main:30 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VirtualFile
+2021-03-31 21:04:38  [ main:31 ] - [ DEBUG ]  VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+2021-03-31 21:04:38  [ main:31 ] - [ DEBUG ]  Using VFS adapter org.apache.ibatis.io.DefaultVFS
+2021-03-31 21:04:38  [ main:33 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 21:04:38  [ main:34 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 21:04:38  [ main:35 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 21:04:38  [ main:36 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 21:04:38  [ main:37 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 21:04:38  [ main:117 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 21:04:38  [ main:118 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 21:04:38  [ main:118 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 21:04:38  [ main:118 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 21:04:38  [ main:121 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 21:04:38  [ main:122 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 21:04:38  [ main:123 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 21:04:38  [ main:123 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 21:04:38  [ main:123 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 21:27:13  [ main:0 ] - [ DEBUG ]  Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2021-03-31 21:27:13  [ main:6 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VFS
+2021-03-31 21:27:13  [ main:7 ] - [ DEBUG ]  JBoss 6 VFS API is not available in this environment.
+2021-03-31 21:27:13  [ main:9 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VirtualFile
+2021-03-31 21:27:13  [ main:11 ] - [ DEBUG ]  VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+2021-03-31 21:27:13  [ main:11 ] - [ DEBUG ]  Using VFS adapter org.apache.ibatis.io.DefaultVFS
+2021-03-31 21:27:13  [ main:12 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 21:27:13  [ main:13 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 21:27:13  [ main:13 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 21:27:13  [ main:14 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 21:27:13  [ main:14 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 21:27:13  [ main:74 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 21:27:13  [ main:75 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 21:27:13  [ main:75 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 21:27:13  [ main:76 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 21:27:13  [ main:77 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 21:27:13  [ main:78 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 21:27:13  [ main:79 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 21:27:13  [ main:79 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 21:27:13  [ main:79 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 22:21:07  [ main:0 ] - [ DEBUG ]  Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2021-03-31 22:21:07  [ main:7 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VFS
+2021-03-31 22:21:07  [ main:7 ] - [ DEBUG ]  JBoss 6 VFS API is not available in this environment.
+2021-03-31 22:21:07  [ main:9 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VirtualFile
+2021-03-31 22:21:07  [ main:10 ] - [ DEBUG ]  VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+2021-03-31 22:21:07  [ main:10 ] - [ DEBUG ]  Using VFS adapter org.apache.ibatis.io.DefaultVFS
+2021-03-31 22:21:07  [ main:11 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 22:21:07  [ main:11 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 22:21:07  [ main:12 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 22:21:07  [ main:12 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 22:21:07  [ main:12 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 22:21:07  [ main:85 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 22:21:07  [ main:86 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 22:21:07  [ main:86 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 22:21:07  [ main:86 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 22:21:07  [ main:88 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 22:21:07  [ main:89 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 22:21:07  [ main:89 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 22:21:07  [ main:89 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 22:21:07  [ main:90 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 23:15:30  [ main:1 ] - [ DEBUG ]  Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2021-03-31 23:15:30  [ main:29 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VFS
+2021-03-31 23:15:30  [ main:29 ] - [ DEBUG ]  JBoss 6 VFS API is not available in this environment.
+2021-03-31 23:15:30  [ main:31 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VirtualFile
+2021-03-31 23:15:30  [ main:32 ] - [ DEBUG ]  VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+2021-03-31 23:15:30  [ main:32 ] - [ DEBUG ]  Using VFS adapter org.apache.ibatis.io.DefaultVFS
+2021-03-31 23:15:30  [ main:33 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 23:15:30  [ main:34 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 23:15:30  [ main:35 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 23:15:30  [ main:36 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 23:15:30  [ main:36 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 23:15:30  [ main:85 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 23:15:30  [ main:86 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 23:15:30  [ main:86 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 23:15:30  [ main:87 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 23:15:30  [ main:89 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 23:15:30  [ main:90 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 23:15:30  [ main:90 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 23:15:30  [ main:90 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 23:15:30  [ main:90 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 23:16:05  [ main:0 ] - [ DEBUG ]  Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2021-03-31 23:16:05  [ main:27 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VFS
+2021-03-31 23:16:05  [ main:27 ] - [ DEBUG ]  JBoss 6 VFS API is not available in this environment.
+2021-03-31 23:16:05  [ main:28 ] - [ DEBUG ]  Class not found: org.jboss.vfs.VirtualFile
+2021-03-31 23:16:05  [ main:30 ] - [ DEBUG ]  VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+2021-03-31 23:16:05  [ main:31 ] - [ DEBUG ]  Using VFS adapter org.apache.ibatis.io.DefaultVFS
+2021-03-31 23:16:05  [ main:31 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 23:16:05  [ main:32 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 23:16:05  [ main:32 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 23:16:05  [ main:33 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 23:16:05  [ main:33 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/entity
+2021-03-31 23:16:05  [ main:83 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 23:16:05  [ main:84 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 23:16:05  [ main:84 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 23:16:05  [ main:84 ] - [ DEBUG ]  PooledDataSource forcefully closed/removed all connections.
+2021-03-31 23:16:05  [ main:86 ] - [ DEBUG ]  Find JAR URL: jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 23:16:05  [ main:87 ] - [ DEBUG ]  Inner URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper
+2021-03-31 23:16:05  [ main:88 ] - [ DEBUG ]  Extracted JAR URL: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 23:16:05  [ main:88 ] - [ DEBUG ]  Found JAR: file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar
+2021-03-31 23:16:05  [ main:88 ] - [ DEBUG ]  Listing jar:file:/Users/fuming/IdeaProjects/carpool/target/carpool-0.0.1-SNAPSHOT.jar!/BOOT-INF/classes!/com/xidian/carpool/mapper

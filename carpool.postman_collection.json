@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "e7700524-feb1-4953-9b9e-dc03fd195fc8",
+		"name": "carpool",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "childRegister",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"openid\": \"98\",\n    \"name\": \"123\",\n    \"sex\": \"1\",\n    \"phone\": \"123\",\n    \"stuclass\": \"123\",\n    \"schooladdr\": \"123\",\n    \"homeaddr\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/child/register",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"child",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "parentRegister",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"openid\": \"1\",\n    \"name\": \"1\",\n    \"sex\": \"1\",\n    \"phone\": \"1\",\n    \"idnumber\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/parent/register",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"parent",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addchild",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"openid\": \"\",\n    \"name\": \"1-2\",\n    \"sex\": \"1\",\n    \"phone\": \"123\",\n    \"stuclass\": \"123\",\n    \"schooladdr\": \"123\",\n    \"homeaddr\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/parent/addchild/1",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"parent",
+						"addchild",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "newCooperate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"driverid\": \"2\",\n    \"maxstu\": \"4\",\n    \"locate\": \"{\\\\\\\"name\\\\\\\":\\\\\\\"西安市政府\\\\\\\",\\\\\\\"latitude\\\\\\\":34.343121,\\\\\\\"longitude\\\\\\\":108.939629,\\\\\\\"address\\\\\\\":\\\\\\\"陕西省西安市未央区凤城八路109号\\\\\\\",\\\\\\\"province\\\\\\\":\\\\\\\"陕西省\\\\\\\",\\\\\\\"city\\\\\\\":\\\\\\\"西安市\\\\\\\",\\\\\\\"district\\\\\\\":\\\\\\\"未央区\\\\\\\"}\",\n    \"carid\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/cooperate/newCooperate",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"cooperate",
+						"newCooperate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "joinCooperate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cooperateid\": \"3\",\n    \"parentid\": \"232\",\n    \"childid\": \"3\",\n    \"childAddr\": \"学校地址\",\n    \"dismistime\": \"2017-11-27T03:16:03.944Z\",\n    \"destinationAddr\": \"家庭地址\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/cpc/joinCooperate",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"cpc",
+						"joinCooperate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upgrade",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"driverid\": \"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/parent/upgrade",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"parent",
+						"upgrade"
+					]
+				},
+				"description": "家长升级为车主"
+			},
+			"response": []
+		},
+		{
+			"name": "addcar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": \"黑\",\n    \"carNumber\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/parent/addcar/1",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"parent",
+						"addcar",
+						"1"
+					]
+				},
+				"description": "家长新增车辆"
+			},
+			"response": []
+		},
+		{
+			"name": "updateCooperate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"driverid\": 2,\n    \"locate\": \"{\\\\\\\"name\\\\\\\":\\\\\\\"西安市政府\\\\\\\",\\\\\\\"latitude\\\\\\\":34.343121,\\\\\\\"longitude\\\\\\\":108.939629,\\\\\\\"address\\\\\\\":\\\\\\\"陕西省西安市未央区凤城八路109号\\\\\\\",\\\\\\\"province\\\\\\\":\\\\\\\"陕西省\\\\\\\",\\\\\\\"city\\\\\\\":\\\\\\\"西安市\\\\\\\",\\\\\\\"district\\\\\\\":\\\\\\\"未央区\\\\\\\"}\",\n    \"state\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/cooperate/updateCooperate/1",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"cooperate",
+						"updateCooperate",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCPC",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"2\",\n    \"state\":2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/cpc/updateCPC",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"cpc",
+						"updateCPC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNearCooperate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"2\",\n    \"state\":2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/info/getNearCooperate",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"info",
+						"getNearCooperate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getParentInfo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/info/getParentInfo/1",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"info",
+						"getParentInfo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getChildInfo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/info/getChildInfo/33",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"info",
+						"getChildInfo",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserInfo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://127.0.0.1:8086/info/getUserInfo/obk6s5b0ZxLbscGXDCiRt1sRX1HM",
+					"protocol": "https",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8086",
+					"path": [
+						"info",
+						"getUserInfo",
+						"obk6s5b0ZxLbscGXDCiRt1sRX1HM"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

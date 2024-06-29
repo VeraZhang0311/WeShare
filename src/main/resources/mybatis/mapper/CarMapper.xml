@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.carpool.mapper.CarMapper">
+
+    <select id="atDB" resultType="int">
+        SELECT COUNT(0) AS carExists
+        FROM car
+        WHERE carnumber = #{carNumber};
+    </select>
+    <insert id="addCar" keyProperty="id">
+        INSERT INTO `car`(`color`, `carnumber`)
+        VALUES (#{color}, #{carNumber});
+    </insert>
+    <select id="fillByCarNumber" resultType="com.xidian.carpool.entity.Car">
+        SELECT *
+        from car
+        WHERE carnumber = #{carNumber}
+    </select>
+</mapper>
